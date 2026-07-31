@@ -104,25 +104,25 @@
   .links {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .chip-link {
-    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    background: var(--accent-light);
+    gap: 8px 12px;
+    font-size: 14px;
     color: var(--accent);
-    border-radius: 9999px;
-    font-size: 13px;
     font-weight: 500;
-    transition: all 0.2s ease;
   }
 
-  .chip-link:hover {
-    background: #DBEAFE;
-    transform: translateY(-1px);
+  .links a {
+    transition: opacity 0.2s ease;
+  }
+
+  .links a:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+  }
+
+  .links .sep {
+    color: var(--line);
+    user-select: none;
   }
 
   /* ---------- Section Labels ---------- */
@@ -253,8 +253,11 @@
       <h1>Talitha <span>Rhea Abieza</span></h1>
       <p>I specialize in consumer insights and data storytelling, working across Power BI, Google Looker Studio, and Tableau, with SQL, RStudio, and Python. Backed by a Master's in Marketing Analytics &amp; Insights and 5 years of experience at Tokopedia, here is a collection of my work.</p>
       <div class="links">
-        <a href="https://www.linkedin.com/in/talithabieza/" target="_blank" class="chip-link">LinkedIn ↗</a>
-        <a href="mailto:talitha.abieza@u.nus.edu" class="chip-link">Email Me ↗</a>
+        <a href="https://www.linkedin.com/in/talithabieza/" target="_blank">LinkedIn ↗</a>
+        <span class="sep">·</span>
+        <a href="mailto:talitharhea@gmail.com">talitharhea@gmail.com</a>
+        <span class="sep">·</span>
+        <a href="mailto:talitha.abieza@u.nus.edu">talitha.abieza@u.nus.edu</a>
       </div>
     </div>
   </div>
