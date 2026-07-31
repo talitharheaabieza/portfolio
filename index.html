@@ -75,31 +75,22 @@
     margin-bottom: 6px;
   }
 
-  /* Side-by-side name layout */
-  .name-row {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-  }
-
+  /* Single H1 with lighter inline span for Rhea Abieza */
   .header-text h1 {
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: 36px;
-    margin: 0;
+    margin: 0 0 12px;
     letter-spacing: -0.02em;
     color: var(--ink);
+    white-space: nowrap;
   }
 
-  .header-text h2 {
-    font-family: 'Fraunces', serif;
+  .header-text h1 span {
     font-weight: 400;
     font-size: 32px;
-    margin: 0;
-    letter-spacing: -0.01em;
     color: var(--muted);
+    margin-left: 8px;
   }
 
   .header-text p {
@@ -236,7 +227,6 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 900px) {
     .header { flex-direction: column; text-align: center; padding: 32px; }
-    .name-row { justify-content: center; }
     .header-text p { max-width: 100%; }
     .links { justify-content: center; }
     .grid { grid-template-columns: repeat(2, 1fr); }
@@ -245,6 +235,7 @@
 
   @media (max-width: 600px) {
     body { padding: 32px 16px 64px; }
+    .header-text h1 { white-space: normal; }
     .grid { grid-template-columns: 1fr; }
     .card.featured { grid-column: span 1; }
   }
@@ -259,10 +250,7 @@
     </div>
     <div class="header-text">
       <div class="greeting">Hi, I'm</div>
-      <div class="name-row">
-        <h1>Talitha</h1>
-        <h2>Rhea Abieza</h2>
-      </div>
+      <h1>Talitha <span>Rhea Abieza</span></h1>
       <p>I specialize in consumer insights and data storytelling — working across Power BI, Google Looker Studio, and Tableau, with SQL, RStudio, and Python. Backed by a Master's in Marketing Analytics &amp; Insights and 5 years of experience at Tokopedia, here is a collection of my work.</p>
       <div class="links">
         <a href="https://linkedin.com/in/yourname" target="_blank" class="chip-link">LinkedIn ↗</a>
