@@ -37,7 +37,7 @@
   /* ---------- Header ---------- */
   .header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
     background: var(--card);
     border: 1px solid var(--line);
@@ -56,15 +56,23 @@
     background: #F3F4F6;
     border: 4px solid #FFFFFF;
     box-shadow: var(--shadow-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--muted);
-    font-size: 13px;
-    text-align: center;
   }
 
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .header-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
 
   .greeting {
     font-size: 14px;
@@ -75,12 +83,11 @@
     margin-bottom: 6px;
   }
 
-  /* Header H1 styling */
   .header-text h1 {
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: 36px;
-    margin: 0 0 12px;
+    margin: 0;
     letter-spacing: -0.02em;
     color: var(--ink);
     white-space: nowrap;
@@ -93,36 +100,24 @@
     margin-left: 8px;
   }
 
-  .header-text p {
-    margin: 0 0 20px;
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.6;
-    max-width: 64ch;
-  }
-
   .links {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 12px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
     font-size: 14px;
     color: var(--accent);
     font-weight: 500;
+    white-space: nowrap;
   }
 
-  .links a {
-    transition: opacity 0.2s ease;
-  }
+  .links a:hover { text-decoration: underline; }
 
-  .links a:hover {
-    text-decoration: underline;
-    opacity: 0.85;
-  }
-
-  .links .sep {
-    color: var(--line);
-    user-select: none;
+  .header-text p {
+    margin: 12px 0 0;
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
   }
 
   /* ---------- Section Labels ---------- */
@@ -226,9 +221,9 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width: 900px) {
-    .header { flex-direction: column; text-align: center; padding: 32px; }
-    .header-text p { max-width: 100%; }
-    .links { justify-content: center; }
+    .header { flex-direction: column; text-align: center; padding: 32px; align-items: center; }
+    .header-top { flex-direction: column; align-items: center; }
+    .links { align-items: center; }
     .grid { grid-template-columns: repeat(2, 1fr); }
     .card.featured { grid-column: span 2; }
   }
@@ -248,16 +243,20 @@
     <div class="photo">
       <img src="photo.png" alt="Talitha Rhea Abieza">
     </div>
-    <div class="header-text">
-      <div class="greeting">Hi! I'm</div>
-      <h1>Talitha <span>Rhea Abieza</span></h1>
-      <p>I specialize in consumer insights and data storytelling, transforming complex data into actionable business insights using Power BI, Google Looker Studio, and Tableau for visualization, alongside SQL, R, and Python for data preparation, analysis, and modeling. Backed by a Master's degree in Marketing Analytics & Insights and five years of experience at Tokopedia, this portfolio showcases a selection of my work.</p>
-      <div class="links">
-        <a href="mailto:talitha.abieza@u.nus.edu">talitha.abieza@u.nus.edu</a>
-        <span class="sep">·</span>
-        <a href="mailto:talitharhea@gmail.com">talitharhea@gmail.com</a>
-        <span class="sep">·</span>
-        <a href="https://www.linkedin.com/in/talithabieza/" target="_blank">LinkedIn ↗</a>
+    <div class="header-content">
+      <div class="header-top">
+        <div class="header-text">
+          <div class="greeting">Hi! I'm</div>
+          <h1>Talitha <span>Rhea Abieza</span></h1>
+        </div>
+        <div class="links">
+          <a href="mailto:talitha.abieza@u.nus.edu">talitha.abieza@u.nus.edu</a>
+          <a href="mailto:talitharhea@gmail.com">talitharhea@gmail.com</a>
+          <a href="https://www.linkedin.com/in/talithabieza/" target="_blank">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="header-text">
+        <p>I specialize in consumer insights and data storytelling, transforming complex data into actionable business insights using Power BI, Google Looker Studio, and Tableau for visualization, alongside SQL, R, and Python for data preparation, analysis, and modeling. Backed by a Master's degree in Marketing Analytics &amp; Insights and five years of experience at Tokopedia, this portfolio showcases a selection of my work.</p>
       </div>
     </div>
   </div>
