@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Talitha - Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F8F9FA;
@@ -60,71 +60,71 @@
 
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .header-content {
+  .header-text {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
   }
 
   .greeting {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--muted);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 500;
     margin-bottom: 6px;
   }
 
   .header-text h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 36px;
-    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    margin: 0 0 12px;
     letter-spacing: -0.02em;
     color: var(--ink);
     white-space: nowrap;
   }
 
   .header-text h1 span {
-    font-weight: 600;
-    font-size: 36px;
+    font-weight: 700;
+    font-size: 34px;
     color: var(--muted);
     margin-left: 8px;
   }
 
-  .links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
-    font-size: 14px;
-    color: var(--accent);
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .links a:hover { text-decoration: underline; }
-
   .header-text p {
-    margin: 12px 0 0;
+    margin: 0 0 20px;
     font-size: 16px;
     color: var(--muted);
     line-height: 1.6;
   }
 
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .links a {
+    transition: opacity 0.2s ease;
+  }
+
+  .links a:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+  }
+
+  .links .sep {
+    color: var(--line);
+    user-select: none;
+  }
+
   /* ---------- Section Labels ---------- */
   .section-label {
-    font-family: 'Fraunces', serif;
-    font-size: 28px;
-    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     margin: 0 0 6px;
   }
 
@@ -198,15 +198,15 @@
   }
 
   .title {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
     line-height: 1.4;
     margin: 0 0 8px;
     color: var(--ink);
   }
 
-  .card.featured .title { font-size: 22px; }
+  .card.featured .title { font-size: 20px; }
   .period { font-size: 13px; color: var(--muted); margin-top: auto; }
 
   /* ---------- Footer ---------- */
@@ -222,8 +222,7 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 900px) {
     .header { flex-direction: column; text-align: center; padding: 32px; align-items: center; }
-    .header-top { flex-direction: column; align-items: center; }
-    .links { align-items: center; }
+    .links { justify-content: center; }
     .grid { grid-template-columns: repeat(2, 1fr); }
     .card.featured { grid-column: span 2; }
   }
@@ -243,20 +242,16 @@
     <div class="photo">
       <img src="photo.png" alt="Talitha Rhea Abieza">
     </div>
-    <div class="header-content">
-      <div class="header-top">
-        <div class="header-text">
-          <div class="greeting">Hi! I'm</div>
-          <h1>Talitha <span>Rhea Abieza</span></h1>
-        </div>
-        <div class="links">
-          <a href="mailto:talitha.abieza@u.nus.edu">talitha.abieza@u.nus.edu</a>
-          <a href="mailto:talitharhea@gmail.com">talitharhea@gmail.com</a>
-          <a href="https://www.linkedin.com/in/talithabieza/" target="_blank">LinkedIn ↗</a>
-        </div>
-      </div>
-      <div class="header-text">
-        <p>I specialize in consumer insights and data storytelling, transforming complex data into actionable business insights using Power BI, Google Looker Studio, and Tableau for visualization, alongside SQL, R, and Python for data preparation, analysis, and modeling. Backed by a Master's degree in Marketing Analytics &amp; Insights and five years of experience at Tokopedia, this portfolio showcases a selection of my work.</p>
+    <div class="header-text">
+      <div class="greeting">Hi! I'm</div>
+      <h1>Talitha <span>Rhea Abieza</span></h1>
+      <p>I specialize in consumer insights and data storytelling, transforming complex data into actionable business insights using Power BI, Google Looker Studio, and Tableau for visualization, alongside SQL, R, and Python for data preparation, analysis, and modeling. Backed by a Master's degree in Marketing Analytics &amp; Insights and five years of experience at Tokopedia, this portfolio showcases a selection of my work.</p>
+      <div class="links">
+        <a href="mailto:talitha.abieza@u.nus.edu">talitha.abieza@u.nus.edu</a>
+        <span class="sep">·</span>
+        <a href="mailto:talitharhea@gmail.com">talitharhea@gmail.com</a>
+        <span class="sep">·</span>
+        <a href="https://www.linkedin.com/in/talithabieza/" target="_blank">LinkedIn ↗</a>
       </div>
     </div>
   </div>
