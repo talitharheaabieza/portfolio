@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talitha — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F8F9FA;
+    --card: #FFFFFF;
+    --ink: #111827;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --accent: #2563EB;
+    --accent-light: #EFF6FF;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding: 64px 24px 110px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Header ---------- */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 48px;
+    margin-bottom: 56px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .photo {
+    flex: 0 0 136px;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #F3F4F6;
+    border: 4px solid #FFFFFF;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .greeting {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .header-text h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 36px;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .header-text p {
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .chip-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .chip-link:hover {
+    background: #DBEAFE;
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Section Labels ---------- */
+  .section-label {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  /* ---------- Gallery Grid ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: #D1D5DB;
+  }
+
+  .card.featured { grid-column: span 2; }
+
+  .thumb {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card.featured .thumb { aspect-ratio: 16 / 9; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .thumb-placeholder {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+    background: #E5E7EB;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+
+  .meta { padding: 20px 24px 24px; display: flex; flex-direction: column; flex-grow: 1; }
+
+  .badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 10px;
+    background: #F3F4F6;
+    color: var(--ink);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+
+  .card.featured .title { font-size: 22px; }
+  .period { font-size: 13px; color: var(--muted); margin-top: auto; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    margin-top: 72px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .header { flex-direction: column; text-align: center; padding: 32px; }
+    .header-text p { max-width: 100%; }
+    .links { justify-content: center; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .card.featured { grid-column: span 2; }
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 32px 16px 64px; }
+    .grid { grid-template-columns: 1fr; }
+    .card.featured { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="photo">
+      <img src="profile.jpg" alt="Talitha" onerror="this.parentElement.innerHTML='Add Photo'">
+    </div>
+    <div class="header-text">
+      <div class="greeting">Hi, I'm</div>
+      <h1>Talitha</h1>
+      <p>I specialize in consumer insights and data storytelling — working across Power BI, Google Looker Studio, and Tableau, with SQL, RStudio, and Python. Backed by a Master's in Marketing Analytics &amp; Insights and 5 years of experience at Tokopedia, here is a collection of my work.</p>
+      <div class="links">
+        <a href="https://linkedin.com/in/yourname" target="_blank" class="chip-link">LinkedIn ↗</a>
+        <a href="mailto:you@email.com" class="chip-link">Email Me ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Selected Work</div>
+  <div class="section-sub">A curated selection of client work, analytics projects, and data dashboards.</div>
+
+  <div class="grid">
+
+    <div class="card featured">
+      <div class="thumb">
+        <div class="thumb-placeholder">Dashboard Preview</div>
+      </div>
+      <div class="meta">
+        <span class="badge">Power BI · Client Project</span>
+        <div class="title">Channel Performance Dashboard — MSIG Indonesia &amp; Singapore</div>
+        <div class="period">Apr – Jul 2026</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">Chart Preview</div>
+      </div>
+      <div class="meta">
+        <span class="badge">Python · ML Experiment</span>
+        <div class="title">Thompson Sampling Ad Optimization — XYZ Coffee</div>
+        <div class="period">Jan – Apr 2026</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">Dashboard Preview</div>
+      </div>
+      <div class="meta">
+        <span class="badge">Tableau · Practice Project</span>
+        <div class="title">Customer Analytics Dashboard</div>
+        <div class="period">Jan – Apr 2026</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">SQL / ERD View</div>
+      </div>
+      <div class="meta">
+        <span class="badge">SQL · Group Project</span>
+        <div class="title">CRM Analysis: Missed Conversions &amp; Churn — Duolingo</div>
+        <div class="period">Jan – Mar 2026</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">Affinity Map</div>
+      </div>
+      <div class="meta">
+        <span class="badge">R · Client Project</span>
+        <div class="title">Market Basket Analysis — XYZ Restaurant, Indonesia</div>
+        <div class="period">Aug – Dec 2025</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">Regression Output</div>
+      </div>
+      <div class="meta">
+        <span class="badge">Python · Client Project</span>
+        <div class="title">B2B Sales Regression — XYZ Company, Indonesia</div>
+        <div class="period">Aug – Nov 2025</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">Cluster Chart</div>
+      </div>
+      <div class="meta">
+        <span class="badge">R · Research Project</span>
+        <div class="title">Hawker Centres vs Modern Dining — Consumer Perception</div>
+        <div class="period">Aug – Nov 2025</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">Dashboard Preview</div>
+      </div>
+      <div class="meta">
+        <span class="badge">Google Looker · Work Experience</span>
+        <div class="title">Overall Performance Dashboard — Tokopedia Physical Goods</div>
+        <div class="period">Jan 2023 – Apr 2024</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">
+        <div class="thumb-placeholder">Model Output</div>
+      </div>
+      <div class="meta">
+        <span class="badge">Work Experience</span>
+        <div class="title">Run Rate Forecasting Model Refinement — Tokopedia</div>
+        <div class="period">Jan 2023 – Apr 2024</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Made with care · Talitha's Portfolio</footer>
+
+</div>
+</body>
+</html>
