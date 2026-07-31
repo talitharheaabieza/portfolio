@@ -75,6 +75,15 @@
     margin-bottom: 6px;
   }
 
+  /* Side-by-side name layout */
+  .name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
   .header-text h1 {
     font-family: 'Fraunces', serif;
     font-weight: 600;
@@ -86,9 +95,9 @@
 
   .header-text h2 {
     font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 26px;
-    margin: 0 0 12px;
+    font-weight: 400;
+    font-size: 32px;
+    margin: 0;
     letter-spacing: -0.01em;
     color: var(--muted);
   }
@@ -227,6 +236,7 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 900px) {
     .header { flex-direction: column; text-align: center; padding: 32px; }
+    .name-row { justify-content: center; }
     .header-text p { max-width: 100%; }
     .links { justify-content: center; }
     .grid { grid-template-columns: repeat(2, 1fr); }
@@ -249,7 +259,10 @@
     </div>
     <div class="header-text">
       <div class="greeting">Hi, I'm</div>
-      <h1>Talitha</h1> <h2>Rhea Abieza</h2>
+      <div class="name-row">
+        <h1>Talitha</h1>
+        <h2>Rhea Abieza</h2>
+      </div>
       <p>I specialize in consumer insights and data storytelling — working across Power BI, Google Looker Studio, and Tableau, with SQL, RStudio, and Python. Backed by a Master's in Marketing Analytics &amp; Insights and 5 years of experience at Tokopedia, here is a collection of my work.</p>
       <div class="links">
         <a href="https://linkedin.com/in/yourname" target="_blank" class="chip-link">LinkedIn ↗</a>
