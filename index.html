@@ -176,6 +176,32 @@
     text-align: center;
   }
 
+  /* ---------- Dual Metric/Text Thumb Box ---------- */
+  .code-thumb-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    background: #F9FAFB;
+    gap: 1px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .code-thumb-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background: #FFFFFF;
+    text-align: center;
+  }
+
+  .code-thumb-half:first-child {
+    border-right: 1px solid var(--line);
+    background: #EFF6FF;
+  }
+
   /* ---------- Dual Thumbnail Layout ---------- */
   .dual-thumb {
     display: flex !important;
@@ -620,14 +646,43 @@
       </div>
     </div>
 
-    <!-- Market Basket Analysis -->
-    <div class="card">
+    <!-- Market Basket Analysis (NO-IMAGE CODE THUMBNAIL) -->
+    <div class="card" onclick="openMarketBasketModal()">
       <div class="thumb">
-        <div class="thumb-placeholder">Affinity Map</div>
+        <div class="code-thumb-split">
+          <div class="code-thumb-half">
+            <div style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+              Noon Bundle
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--ink);">
+              Day Combo
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+              Mains + Non-Coffee
+            </div>
+          </div>
+          <div class="code-thumb-half">
+            <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+              Night Bundle
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--ink);">
+              Evening Treat
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+              Dessert + Coffee
+            </div>
+          </div>
+        </div>
       </div>
       <div class="meta">
-        <span class="badge">R · Client Project</span>
+        <div class="badge-row">
+          <span class="badge">R · NUS Course Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
         <div class="title">Market Basket Analysis (XYZ Restaurant, Indonesia)</div>
+        <p class="card-desc">
+          Conducted for a local Indonesian F&amp;B restaurant chain using R to uncover product affinities across dayparts (noon vs. night) and design data-driven menu bundles.
+        </p>
         <div class="period">Aug - Dec 2025</div>
       </div>
     </div>
@@ -940,6 +995,53 @@
   </div>
 </div>
 
+<!-- ---------- Market Basket Analysis Detail Modal ---------- -->
+<div id="marketBasketModal" class="modal" onclick="closeMarketBasketModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseMarketBasketModal()">&times;</button>
+    <span class="badge">R · NUS Business School</span>
+    <h2>Market Basket Analysis: Data-Driven Bundling Strategy (XYZ Restaurant)</h2>
+    <div class="modal-period">Aug - Dec 2025 · Course Project for 'Big Data' (NUS MSc MAI)</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>As part of the 'Big Data' course in the MSc MAI program at NUS, this market basket analysis was conducted for a local Indonesian F&amp;B restaurant chain (client identity masked for confidentiality), using R to identify product and category affinities and inform bundling strategy.</p>
+
+      <h3>Key Findings &amp; Time-Period Patterns</h3>
+      <p>Analyzed purchase patterns across time periods (noon vs. night) to uncover distinct consumption behavior:</p>
+      <ul>
+        <li><strong>Noon Consumption:</strong> Skewed toward functional, balanced meal-drink pairings (e.g., Mains &amp; Non-Coffee).</li>
+        <li><strong>Night Consumption:</strong> Skewed toward indulgent, leisure-oriented pairings (e.g., Desserts &amp; Coffee).</li>
+      </ul>
+
+      <p><strong>Top Identified Bundles:</strong></p>
+      <ul>
+        <li><strong>Noon Signature Bundle ("Day Combo"):</strong> Fried Rice + Mineral Water</li>
+        <li><strong>Night Signature Bundle ("Evening Treat"):</strong> Chocolate Cheese Fried Banana + Coffee Latte</li>
+      </ul>
+
+      <h3>Actionable Recommendations</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Menu Layout</div>
+          <div class="insight-title">Time-Period Design</div>
+          <p>Structure menus differently by daypart, leading with functional pairings at noon and indulgent pairings at night.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Bundling</div>
+          <div class="insight-title">Signature Combos</div>
+          <p>Package top affinity pairs into named combos like "Day Combo" and "Evening Treat" for seamless ordering.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Placement</div>
+          <div class="insight-title">Cross-Selling</div>
+          <p>Position high-affinity categories close to each other on menus and POS systems to drive add-on orders.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ---------- Consumer Perception Detail Modal ---------- -->
 <div id="hawkerModal" class="modal" onclick="closeHawkerModal(event)">
   <div class="modal-content">
@@ -1144,6 +1246,24 @@
 
   function forceCloseDuolingoModal() {
     document.getElementById('duolingoModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Market Basket Analysis Modal */
+  function openMarketBasketModal() {
+    document.getElementById('marketBasketModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMarketBasketModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('marketBasketModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseMarketBasketModal() {
+    document.getElementById('marketBasketModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 
