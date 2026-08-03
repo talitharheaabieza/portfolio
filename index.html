@@ -644,14 +644,30 @@
       </div>
     </div>
 
-    <!-- Consumer Perception -->
-    <div class="card">
+    <!-- Consumer Perception Study -->
+    <div class="card" onclick="openHawkerModal()">
       <div class="thumb">
-        <div class="thumb-placeholder">Cluster Chart</div>
+        <div class="code-thumb-box">
+          <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            Key Predictor
+          </div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--accent);">
+            Functional &amp; Utility
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
+            Primary Driver of Hawker Preference
+          </div>
+        </div>
       </div>
       <div class="meta">
-        <span class="badge">R · Research Project</span>
-        <div class="title">Hawker Centres vs Modern Dining: Consumer Perception</div>
+        <div class="badge-row">
+          <span class="badge">R · NUS Academic Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Consumer Perception Study: Hawker Centres vs Modern Dining</div>
+        <p class="card-desc">
+          Mixed-methods research using R (Factor &amp; Cluster Analysis) and Focus Group Discussions to identify key choice drivers and segment Singapore youth dining preferences.
+        </p>
         <div class="period">Aug - Nov 2025</div>
       </div>
     </div>
@@ -924,6 +940,54 @@
   </div>
 </div>
 
+<!-- ---------- Consumer Perception Detail Modal ---------- -->
+<div id="hawkerModal" class="modal" onclick="closeHawkerModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseHawkerModal()">&times;</button>
+    <span class="badge">R · NUS Business School</span>
+    <h2>Consumer Perception: Hawker Centres vs Modern Dining in Singapore</h2>
+    <div class="modal-period">Aug 2025 – Nov 2025 · Research for Marketing Insights (NUS MSc MAI)</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>This project examined why youth in Singapore choose hawker centers over modern dining options (cafes, food courts, restaurants), and how digital platforms shape trial and perception.</p>
+
+      <h3>Research Methodology</h3>
+      <p>A mixed-methods design combining quantitative and qualitative approaches:</p>
+      <ul>
+        <li><strong>Quantitative Survey:</strong> 70 valid responses analyzed using RStudio.</li>
+        <li><strong>R Analytics:</strong> Exploratory Factor Analysis (EFA), Linear Regression, and K-Means Cluster Analysis.</li>
+        <li><strong>Qualitative Research:</strong> Focus Group Discussion (5 participants) with thematic sentiment analysis on qualitative responses.</li>
+      </ul>
+
+      <h3>Key Findings</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Core Value Drivers</div>
+          <div class="insight-title">Hawker Advantages</div>
+          <p>Affordability, convenience, and cultural identity emerged as hawker centres' strongest value propositions, while hygiene and ambience remained key weaknesses.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Factor Analysis</div>
+          <div class="insight-title">3 Perceptual Dimensions</div>
+          <p>Identified 3 main dimensions, with <strong>"Functional &amp; Utility"</strong> being the only statistically significant predictor of hawker preference.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Cluster Analysis</div>
+          <div class="insight-title">3 Consumer Segments</div>
+          <p>Revealed distinct behavioral profiles, including a highly engaged segment of young, frequent hawker diners.</p>
+        </div>
+      </div>
+
+      <h3>Strategic Recommendations</h3>
+      <ul>
+        <li><strong>Short-Term:</strong> Focus on functional convenience and digital visibility (e.g., live crowd tracking, digital payment integration).</li>
+        <li><strong>Long-Term:</strong> Target hygiene and ambience upgrades alongside tailored marketing strategies to engage less-frequent users.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- ---------- Tokopedia Looker Detail Modal ---------- -->
 <div id="lookerModal" class="modal" onclick="closeLookerModal(event)">
   <div class="modal-content">
@@ -1080,6 +1144,24 @@
 
   function forceCloseDuolingoModal() {
     document.getElementById('duolingoModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Consumer Perception (Hawker) Modal */
+  function openHawkerModal() {
+    document.getElementById('hawkerModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeHawkerModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('hawkerModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseHawkerModal() {
+    document.getElementById('hawkerModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 
