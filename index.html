@@ -646,7 +646,7 @@
       </div>
     </div>
 
-    <!-- Market Basket Analysis (NO-IMAGE CODE THUMBNAIL) -->
+    <!-- Market Basket Analysis -->
     <div class="card" onclick="openMarketBasketModal()">
       <div class="thumb">
         <div class="code-thumb-split">
@@ -688,13 +688,29 @@
     </div>
 
     <!-- B2B Sales Regression -->
-    <div class="card">
+    <div class="card" onclick="openB2bModal()">
       <div class="thumb">
-        <div class="thumb-placeholder">Regression Output</div>
+        <div class="code-thumb-box">
+          <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            Key Driver
+          </div>
+          <div style="font-size: 22px; font-weight: 700; color: #10B981;">
+            +450% Lift
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
+            Discount Level vs. Order Quantity
+          </div>
+        </div>
       </div>
       <div class="meta">
-        <span class="badge">Client Project</span>
+        <div class="badge-row">
+          <span class="badge">Python · NUS Course Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
         <div class="title">B2B Sales Regression (XYZ Company, Indonesia)</div>
+        <p class="card-desc">
+          Explanatory OLS regression study analyzing drivers of B2B purchase volume for an Indonesian flavoring company across 3,700+ transactions.
+        </p>
         <div class="period">Aug - Nov 2025</div>
       </div>
     </div>
@@ -1042,6 +1058,56 @@
   </div>
 </div>
 
+<!-- ---------- B2B Sales Regression Detail Modal ---------- -->
+<div id="b2bModal" class="modal" onclick="closeB2bModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseB2bModal()">&times;</button>
+    <span class="badge">Python · OLS Regression · NUS Business School</span>
+    <h2>B2B Sales Regression Analysis (XYZ Company, Indonesia)</h2>
+    <div class="modal-period">Aug - Nov 2025 · Course Project for 'Python Programming for Business Analytics' (NUS MSc MAI)</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>As part of the 'Python Programming for Business Analytics' course in the MSc MAI program at NUS Business School, this explanatory regression study identified key drivers of B2B purchase quantity for an Indonesian flavoring manufacturer (client identity masked for confidentiality).</p>
+
+      <h3>Data Preparation &amp; Econometric Modeling</h3>
+      <ul>
+        <li><strong>Dataset Cleaning:</strong> Processed and transformed a 3,700+ transaction dataset using Python (Pandas, NumPy, Statsmodels).</li>
+        <li><strong>Feature Engineering:</strong> Applied log transformations, segmented stakeholders into 4 value tiers, and consolidated product categories.</li>
+        <li><strong>Robust Statistical Modeling:</strong> Built an Ordinary Least Squares (OLS) regression model utilizing heteroskedasticity-consistent standard errors (HC3) to properly account for non-constant variance common in B2B transaction data.</li>
+      </ul>
+
+      <h3>Key Findings</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Discount Impact</div>
+          <div class="insight-title">Strongest Driver</div>
+          <div class="insight-stat">+450% Lift</div>
+          <p>Discount level was the single strongest predictor of order volume, driving a massive volume increase.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Price Sensitivity</div>
+          <div class="insight-title">Negligible Effect</div>
+          <p>Unit price had little to no effect, proving B2B buyers respond to deal attractiveness rather than raw price sensitivity.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Channel Performance</div>
+          <div class="insight-title">Marketplace Drag</div>
+          <div class="insight-stat">-57%</div>
+          <p>Marketplace transactions significantly underperformed other sales channels by 57% in purchase volume.</p>
+        </div>
+      </div>
+
+      <h3>Strategic Recommendations</h3>
+      <ul>
+        <li><strong>Tiered Discount Structure:</strong> Reallocate discount budgets into structured tier-based promotions rather than blanket price cuts.</li>
+        <li><strong>Channel Optimization:</strong> Shift resources away from underperforming online marketplaces toward high-converting direct sales channels.</li>
+        <li><strong>Portfolio Rationalization:</strong> Streamline product offerings around high-volume categories to optimize inventory turnover.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- ---------- Consumer Perception Detail Modal ---------- -->
 <div id="hawkerModal" class="modal" onclick="closeHawkerModal(event)">
   <div class="modal-content">
@@ -1264,6 +1330,24 @@
 
   function forceCloseMarketBasketModal() {
     document.getElementById('marketBasketModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* B2B Sales Regression Modal */
+  function openB2bModal() {
+    document.getElementById('b2bModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeB2bModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('b2bModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseB2bModal() {
+    document.getElementById('b2bModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 
