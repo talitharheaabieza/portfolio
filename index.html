@@ -279,6 +279,26 @@
   .card.featured .title { font-size: 20px; }
   .period { font-size: 13px; color: var(--muted); margin-top: auto; }
 
+  /* ---------- External Button Styling ---------- */
+  .btn-external {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #FFFFFF !important;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+    margin: 16px 0 24px;
+  }
+
+  .btn-external:hover {
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
   /* ---------- Insight Cards Grid ---------- */
   .insight-grid {
     display: grid;
@@ -529,13 +549,20 @@
       </div>
     </div>
 
-    <div class="card">
+    <!-- Tableau Customer Analytics Card -->
+    <div class="card" onclick="openTableauModal()">
       <div class="thumb">
-        <div class="thumb-placeholder">Dashboard Preview</div>
+        <img src="Tableau.png" alt="Customer Analytics Dashboard Preview">
       </div>
       <div class="meta">
-        <span class="badge">Tableau · Practice Project</span>
+        <div class="badge-row">
+          <span class="badge">Tableau · Practice Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
         <div class="title">Customer Analytics Dashboard</div>
+        <p class="card-desc">
+          An independent practice project built to strengthen my Tableau skills, using a public Kaggle marketing dataset. Built a multi-chart dashboard exploring customer spend behavior, campaign performance, and demographic segmentation.
+        </p>
         <div class="period">Jan - Apr 2026</div>
       </div>
     </div>
@@ -738,6 +765,35 @@
   </div>
 </div>
 
+<!-- ---------- Tableau Customer Analytics Detail Modal ---------- -->
+<div id="tableauModal" class="modal" onclick="closeTableauModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseTableauModal()">&times;</button>
+    <span class="badge">Tableau · Practice Project</span>
+    <h2>Customer Analytics Dashboard</h2>
+    <div class="modal-period">Jan - Apr 2026</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>Inspired by the course concepts from my Data Visualization course at NUS MSc MAI, this is an independent practice project built to strengthen my Tableau skills, using a public Kaggle marketing dataset.</p>
+      
+      <p>Built a multi-chart dashboard exploring customer spend behavior, campaign performance, and demographic segmentation, including a <strong>treemap</strong>, <strong>scatter plot</strong>, <strong>bar chart</strong>, and <strong>heatmap</strong>.</p>
+
+      <a href="https://public.tableau.com/app/profile/talitha.abieza/viz/Portfolio_TalithaRheaAbieza/Dashboard1" target="_blank" class="btn-external">
+        Open Live Dashboard on Tableau Public ↗
+      </a>
+
+      <h3>Dashboard Preview</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="Tableau.png" alt="Tableau Customer Analytics Dashboard">
+          <caption>Interactive Customer Analytics Dashboard built in Tableau Studio</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ---------- Tokopedia Looker Detail Modal ---------- -->
 <div id="lookerModal" class="modal" onclick="closeLookerModal(event)">
   <div class="modal-content">
@@ -820,6 +876,24 @@
 
   function forceCloseThompsonModal() {
     document.getElementById('thompsonModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Tableau Modal */
+  function openTableauModal() {
+    document.getElementById('tableauModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeTableauModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('tableauModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseTableauModal() {
+    document.getElementById('tableauModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 
