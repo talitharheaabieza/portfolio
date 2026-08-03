@@ -60,9 +60,7 @@
 
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .header-text {
-    flex: 1;
-  }
+  .header-text { flex: 1; }
 
   .greeting {
     font-size: 15px;
@@ -105,19 +103,9 @@
     font-weight: 500;
   }
 
-  .links a {
-    transition: opacity 0.2s ease;
-  }
-
-  .links a:hover {
-    text-decoration: underline;
-    opacity: 0.85;
-  }
-
-  .links .sep {
-    color: var(--line);
-    user-select: none;
-  }
+  .links a { transition: opacity 0.2s ease; }
+  .links a:hover { text-decoration: underline; opacity: 0.85; }
+  .links .sep { color: var(--line); user-select: none; }
 
   /* ---------- Section Labels ---------- */
   .section-label {
@@ -150,6 +138,7 @@
     flex-direction: column;
     box-shadow: var(--shadow-sm);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
   }
 
   .card:hover {
@@ -158,10 +147,7 @@
     border-color: #D1D5DB;
   }
 
-  .card.featured {
-    grid-column: span 2;
-    cursor: pointer;
-  }
+  .card.featured { grid-column: span 2; }
 
   .thumb {
     position: relative;
@@ -268,6 +254,51 @@
 
   .card.featured .title { font-size: 20px; }
   .period { font-size: 13px; color: var(--muted); margin-top: auto; }
+
+  /* ---------- Insight Cards Grid ---------- */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+
+  .insight-card {
+    background: #F9FAFB;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .insight-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .insight-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .insight-stat {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .insight-card p {
+    font-size: 13px !important;
+    color: var(--muted);
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
 
   /* ---------- Modal Overlay & Content ---------- */
   .modal {
@@ -390,6 +421,7 @@
     .grid { grid-template-columns: 1fr; }
     .card.featured { grid-column: span 1; }
     .modal-content { padding: 24px; }
+    .insight-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -419,7 +451,7 @@
 
   <div class="grid">
 
-    <!-- Featured Card -->
+    <!-- Featured Card: MSIG Asia -->
     <div class="card featured" onclick="openMsigModal()">
       <div class="thumb dual-thumb">
         <div class="thumb-half">
@@ -444,13 +476,20 @@
       </div>
     </div>
 
-    <div class="card">
+    <!-- Thompson Sampling Card -->
+    <div class="card" onclick="openThompsonModal()">
       <div class="thumb">
-        <div class="thumb-placeholder">Chart Preview</div>
+        <img src="thompson_1.png" alt="Traffic Allocation Comparison">
       </div>
       <div class="meta">
-        <span class="badge">Python · ML Experiment</span>
+        <div class="badge-row">
+          <span class="badge">Python · ML Experiment</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
         <div class="title">Thompson Sampling Ad Optimization (XYZ Coffee)</div>
+        <p class="card-desc">
+          Evaluated multi-armed bandit traffic allocation vs. static A/B testing and analyzed ad variant performance using statistical modeling.
+        </p>
         <div class="period">Jan - Apr 2026</div>
       </div>
     </div>
@@ -538,7 +577,7 @@
 
 </div>
 
-<!-- Modal Pop-up -->
+<!-- ---------- MSIG Detail Modal ---------- -->
 <div id="msigModal" class="modal" onclick="closeMsigModal(event)">
   <div class="modal-content">
     <button class="modal-close" onclick="forceCloseMsigModal()">&times;</button>
@@ -572,7 +611,74 @@
   </div>
 </div>
 
+<!-- ---------- Thompson Sampling Detail Modal ---------- -->
+<div id="thompsonModal" class="modal" onclick="closeThompsonModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseThompsonModal()">&times;</button>
+    <span class="badge">Python · ML Experiment · XYZ Coffee</span>
+    <h2>Thompson Sampling Ad Optimization (XYZ Coffee)</h2>
+    <div class="modal-period">Jan - Apr 2026</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>This project explores real-time ad optimization using a <strong>Thompson Sampling multi-armed bandit algorithm</strong>. Traditional A/B testing splits traffic evenly throughout an experiment, wasting impressions on underperforming creatives. By leveraging Bayesian updating, Thompson Sampling dynamically shifts traffic toward winning variants while maintaining sufficient exploration to ensure statistical confidence.</p>
+
+      <h3>1. Traffic Allocation: Static A/B Test vs. Thompson Sampling</h3>
+      <p>Standard A/B testing enforces an equal 25% traffic split across all variants (A, B, C, and D) until the experiment concludes. In contrast, Thompson Sampling continuously updates probability distributions based on observed conversions. As shown below, Variant A quickly emerged as the top performer and was automatically allocated <strong>40% of overall traffic</strong>, maximizing total campaign engagement during the test period.</p>
+      
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="thompson_1.png" alt="Traffic Allocation: Static A/B Test vs. Thompson Sampling Bandit">
+          <caption>Figure 1: Comparison of static equal split vs. adaptive Bayesian traffic allocation over time.</caption>
+        </div>
+      </div>
+
+      <h3>2. Click-Through Rate (CTR) by Ad Variant</h3>
+      <p>Evaluating individual creative performance revealed that the <strong>Baseline ad drove the highest engagement at 60% CTR</strong>. Surprisingly, adding visual enhancements or promotional badges decreased overall performance across the other test variants (Interaction: 50%, Discount: 47.62%, Dynamic: 36.36%).</p>
+      
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="thompson_2.png" alt="Click-Through Rate by Ad Variant">
+          <caption>Figure 2: Empirical Click-Through Rates across Baseline, Discount, Dynamic, and Interaction variants.</caption>
+        </div>
+      </div>
+
+      <h3>3. Statistical Analysis &amp; Econometric Insights</h3>
+      <p>To understand the root cause behind performance differences, a regression analysis was conducted on individual ad components:</p>
+      
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Dynamic Element</div>
+          <div class="insight-title">Motion Hurts CTR</div>
+          <div class="insight-stat">-0.24**</div>
+          <p>Adding dynamic visual elements reduced click-through rate by -0.24 (p&lt;0.01). While movement grabbed visual attention, it ultimately lowered user click intent.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Discount Label</div>
+          <div class="insight-title">Discounts Depress Orders</div>
+          <div class="insight-stat">-0.32*</div>
+          <p>The '20% OFF' badge reduced order likelihood by -0.32 (p&lt;0.05). Price signaling inadvertently degraded perception of premium quality.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Combined Effect</div>
+          <div class="insight-title">Combined Adds Little</div>
+          <div class="insight-stat">+0.26*</div>
+          <p>Combining dynamic visuals and discount badges resulted in a marginal uptick (+0.26, p&lt;0.05), but the net effect remained negligible compared to the baseline.</p>
+        </div>
+      </div>
+
+      <div class="modal-gallery" style="margin-top: 20px;">
+        <div class="gallery-item">
+          <img src="thompson_3.png" alt="Statistical Analysis: Key Insights Overview">
+          <caption>Figure 3: Summary of regression coefficients and statistical significance levels.</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  /* MSIG Modal */
   function openMsigModal() {
     document.getElementById('msigModal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -587,6 +693,24 @@
 
   function forceCloseMsigModal() {
     document.getElementById('msigModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Thompson Sampling Modal */
+  function openThompsonModal() {
+    document.getElementById('thompsonModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeThompsonModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('thompsonModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseThompsonModal() {
+    document.getElementById('thompsonModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 </script>
