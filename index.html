@@ -198,6 +198,30 @@
     backdrop-filter: blur(4px);
   }
 
+  /* ---------- Quad Thumbnail Layout (2x2 Grid) ---------- */
+  .quad-thumb {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: var(--line);
+  }
+
+  .thumb-quarter {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+
+  .thumb-quarter img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   .thumb-placeholder {
     font-size: 13px;
     color: var(--muted);
@@ -397,6 +421,17 @@
     text-align: center;
   }
 
+  .confidentiality-box {
+    background: #FEF3C7;
+    border: 1px solid #F59E0B;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 13px;
+    color: #92400E;
+    line-height: 1.5;
+    margin: 20px 0;
+  }
+
   /* ---------- Footer ---------- */
   footer {
     text-align: center;
@@ -549,13 +584,31 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="thumb">
-        <div class="thumb-placeholder">Dashboard Preview</div>
+    <!-- Tokopedia Google Looker Card -->
+    <div class="card" onclick="openLookerModal()">
+      <div class="thumb quad-thumb">
+        <div class="thumb-quarter">
+          <img src="L0 Performance.jpg" alt="L0 Performance Overview">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L0 Comparison.jpg" alt="MoM &amp; YoY L0 Insights">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L2 Performance.jpg" alt="L2 Deep-dive Overview">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L2 Comparison.jpg" alt="MoM &amp; YoY L2 Insights">
+        </div>
       </div>
       <div class="meta">
-        <span class="badge">Google Looker · Work Experience</span>
+        <div class="badge-row">
+          <span class="badge">Google Looker Studio · Practice Dashboard</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
         <div class="title">Overall Performance Dashboard (Tokopedia Physical Goods)</div>
+        <p class="card-desc">
+          Independent practice dashboard recreating an automated reporting system to track e-Commerce performance, category breakdowns, and automated insights using simulated data.
+        </p>
         <div class="period">Jan 2023 - Apr 2024</div>
       </div>
     </div>
@@ -685,6 +738,54 @@
   </div>
 </div>
 
+<!-- ---------- Tokopedia Looker Detail Modal ---------- -->
+<div id="lookerModal" class="modal" onclick="closeLookerModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseLookerModal()">&times;</button>
+    <span class="badge">Google Looker Studio · Independent Practice Dashboard</span>
+    <h2>Overall Performance Dashboard (Tokopedia Physical Goods)</h2>
+    <div class="modal-period">Jan 2023 - Apr 2024</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview &amp; Business Impact</h3>
+      <p>Built an automated dashboard to track overall performance, consolidating data from multiple sources (transaction performance, traffic, products, and target input sheets) into a single view, sustaining <strong>~25% processing time reduction</strong> across 200+ users org-wide in Tokopedia's Physical Goods team.</p>
+
+      <p>Prior to building, I conducted stakeholder research to understand requirements, assessed technical feasibility, and coordinated with the Data Analyst and Governance teams on the Google Analytics backend before designing the dashboard. I've since continued to maintain and expand it with new features based on evolving stakeholder needs. Inspired by my independent project to create Category Performance Dashboard in Tokopedia, this is an independent practice dashboard built in Google Looker Studio using fully simulated data.</p>
+
+      <div class="confidentiality-box">
+        <strong>Confidentiality Notice:</strong> To respect the company's confidentiality, I re-created the dashboard structure on my own. All data shown is 100% simulated and does not reflect actual Tokopedia data, dashboard design, or performance.
+      </div>
+
+      <h3>Key Dashboard Features</h3>
+      <ul>
+        <li><strong>Overall &amp; Category-Level Tracking:</strong> Comprehensive multi-page reporting spanning L0 and L2 category granularities.</li>
+        <li><strong>Period Comparisons:</strong> Dynamic Month-over-Month (MoM) and Year-over-Year (YoY) metric benchmarks.</li>
+        <li><strong>Automated Key Insights:</strong> Dynamic text generation that highlights top and bottom performers across GMV, Orders, PDP Views, CTR, and CVR in real time.</li>
+      </ul>
+
+      <h3>Dashboard Views</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="L0 Performance.jpg" alt="Overall L0 Performance Overview">
+          <caption>Figure 1: Overall L0 Performance Dashboard showing key KPIs, performance over time, and category heatmaps.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="L0 Comparison.jpg" alt="L0 MoM &amp; YoY Insights">
+          <caption>Figure 2: L0 MoM and YoY Performance tables with automated key insights text.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="L2 Performance.jpg" alt="Level 2 Category Deep-dive">
+          <caption>Figure 3: Category Deep-dive by L2 sub-categories with granular metric performance.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="L2 Comparison.jpg" alt="L2 MoM &amp; YoY Insights">
+          <caption>Figure 4: Level 2 MoM and YoY performance comparisons across sub-category dimensions.</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   /* MSIG Modal */
   function openMsigModal() {
@@ -719,6 +820,24 @@
 
   function forceCloseThompsonModal() {
     document.getElementById('thompsonModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Looker Studio Modal */
+  function openLookerModal() {
+    document.getElementById('lookerModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLookerModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('lookerModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseLookerModal() {
+    document.getElementById('lookerModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 </script>
