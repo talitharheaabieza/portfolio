@@ -163,6 +163,19 @@
   .card.featured .thumb { aspect-ratio: 16 / 9; }
   .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+  /* ---------- Code-based Metric Preview Box ---------- */
+  .code-thumb-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
+    padding: 16px;
+    text-align: center;
+  }
+
   /* ---------- Dual Thumbnail Layout ---------- */
   .dual-thumb {
     display: flex !important;
@@ -417,10 +430,11 @@
 
   .modal-body code {
     background: #F3F4F6;
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
     font-size: 13px;
     color: var(--ink);
+    display: inline-block;
   }
 
   .modal-body ul {
@@ -672,13 +686,30 @@
     </div>
 
     <!-- Forecasting Model -->
-    <div class="card">
+    <div class="card" onclick="openForecastingModal()">
       <div class="thumb">
-        <div class="thumb-placeholder">Model Output</div>
+        <div class="code-thumb-box">
+          <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            Projection Error Gap
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px; font-weight: 700; color: #EF4444; text-decoration: line-through;">20–30%</span>
+            <span style="font-size: 20px; font-weight: 700; color: #10B981;">→ 5–10%</span>
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
+            Forecast vs. Actual Variance
+          </div>
+        </div>
       </div>
       <div class="meta">
-        <span class="badge">Work Experience</span>
-        <div class="title">Run Rate Forecasting Model Refinement (Tokopedia)</div>
+        <div class="badge-row">
+          <span class="badge">Tokopedia · Work Experience</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Run Rate Forecasting Model Refinement</div>
+        <p class="card-desc">
+          Formulated a new run rate logic incorporating weekend/weekday cycles, seasonal campaign patterns, and weighted scoring, reducing projection variance down to 5-10%.
+        </p>
         <div class="period">Jan 2023 - Apr 2024</div>
       </div>
     </div>
@@ -941,6 +972,44 @@
   </div>
 </div>
 
+<!-- ---------- Forecasting Model Detail Modal ---------- -->
+<div id="forecastingModal" class="modal" onclick="closeForecastingModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseForecastingModal()">&times;</button>
+    <span class="badge">Tokopedia · Work Experience</span>
+    <h2>Run Rate Forecasting Model Refinement</h2>
+    <div class="modal-period">Jan 2023 – Apr 2024</div>
+    
+    <div class="modal-body">
+      <h3>Problem Statement</h3>
+      <p>The existing run-rate calculation relied on a simple linear projection:</p>
+      <p><code>(Total Days in Month ÷ Days Elapsed) × Performance-to-Date</code></p>
+      <p>This baseline calculation failed to capture weekday vs. weekend traffic drops and e-commerce promotional cycles, resulting in a large projected-vs-actual variance of <strong>20% to 30%</strong>.</p>
+
+      <h3>Key Logic &amp; Enhancements</h3>
+      <ul>
+        <li><strong>Day-of-Week Seasonality:</strong> Factored in daily shopping velocity variations (weekdays vs. weekends) across product categories.</li>
+        <li><strong>Monthly &amp; Campaign Patterns:</strong> Incorporated historic campaign spike ratios (e.g., pay-day sales, double-digit mega campaigns).</li>
+        <li><strong>Weighted Scoring:</strong> Applied exponentially weighted moving averages to prioritize recent daily performance trends over distant historical averages.</li>
+      </ul>
+
+      <h3>Business Impact</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Accuracy</div>
+          <div class="insight-title">Reduced Variance</div>
+          <div class="insight-stat">5% – 10%</div>
+          <p>Dramatically narrowed the gap between projected and actual month-end figures (down from 20–30%).</p>
+        </div>
+      </div>
+
+      <div class="confidentiality-box">
+        <strong>Confidentiality Notice:</strong> Specific proprietary formulas, weighting parameters, and internal metrics have been omitted to preserve corporate confidentiality.
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   /* MSIG Modal */
   function openMsigModal() {
@@ -1029,6 +1098,24 @@
 
   function forceCloseLookerModal() {
     document.getElementById('lookerModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Forecasting Model Modal */
+  function openForecastingModal() {
+    document.getElementById('forecastingModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeForecastingModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('forecastingModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseForecastingModal() {
+    document.getElementById('forecastingModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 </script>
