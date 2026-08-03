@@ -415,6 +415,14 @@
     line-height: 1.6;
   }
 
+  .modal-body code {
+    background: #F3F4F6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
   .modal-body ul {
     padding-left: 20px;
     margin: 0 0 20px;
@@ -483,6 +491,7 @@
 <body>
 <div class="wrap">
 
+  <!-- Header -->
   <div class="header">
     <div class="photo">
       <img src="photo.png" alt="Talitha Rhea Abieza">
@@ -504,9 +513,10 @@
   <div class="section-label">Selected Work</div>
   <div class="section-sub">A curated selection of client projects, analytics solutions, and interactive dashboards.</div>
 
+  <!-- Portfolio Grid -->
   <div class="grid">
 
-    <!-- Featured Card: MSIG Asia -->
+    <!-- MSIG Asia -->
     <div class="card featured" onclick="openMsigModal()">
       <div class="thumb dual-thumb">
         <div class="thumb-half">
@@ -531,7 +541,7 @@
       </div>
     </div>
 
-    <!-- Thompson Sampling Card -->
+    <!-- Thompson Sampling -->
     <div class="card" onclick="openThompsonModal()">
       <div class="thumb">
         <img src="thompson_1.png" alt="Traffic Allocation Comparison">
@@ -549,7 +559,7 @@
       </div>
     </div>
 
-    <!-- Tableau Customer Analytics Card -->
+    <!-- Tableau Customer Analytics -->
     <div class="card" onclick="openTableauModal()">
       <div class="thumb">
         <img src="Tableau.png" alt="Customer Analytics Dashboard Preview">
@@ -567,17 +577,36 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="thumb">
-        <div class="thumb-placeholder">SQL / ERD View</div>
+    <!-- Duolingo CRM Analysis -->
+    <div class="card" onclick="openDuolingoModal()">
+      <div class="thumb quad-thumb">
+        <div class="thumb-quarter">
+          <img src="erd.png" alt="CRM Database Structure ERD">
+        </div>
+        <div class="thumb-quarter">
+          <img src="upgrade_rate.png" alt="Upgrade Rate by Engagement Threshold">
+        </div>
+        <div class="thumb-quarter">
+          <img src="conversion_rate.png" alt="Conversion Rate by Course Pair">
+        </div>
+        <div class="thumb-quarter">
+          <img src="churn_rate.png" alt="Churn Rate by Plan Tier and Auto-Renew">
+        </div>
       </div>
       <div class="meta">
-        <span class="badge">SQL · Group Project</span>
+        <div class="badge-row">
+          <span class="badge">SQL · Group Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
         <div class="title">CRM Analysis: Missed Conversions &amp; Churn (Duolingo)</div>
+        <p class="card-desc">
+          SQL-driven analysis modeling user engagement, email campaign conversions, and time-based churn indicators across a freemium CRM database.
+        </p>
         <div class="period">Jan - Mar 2026</div>
       </div>
     </div>
 
+    <!-- Market Basket Analysis -->
     <div class="card">
       <div class="thumb">
         <div class="thumb-placeholder">Affinity Map</div>
@@ -589,6 +618,7 @@
       </div>
     </div>
 
+    <!-- B2B Sales Regression -->
     <div class="card">
       <div class="thumb">
         <div class="thumb-placeholder">Regression Output</div>
@@ -600,6 +630,7 @@
       </div>
     </div>
 
+    <!-- Consumer Perception -->
     <div class="card">
       <div class="thumb">
         <div class="thumb-placeholder">Cluster Chart</div>
@@ -611,7 +642,7 @@
       </div>
     </div>
 
-    <!-- Tokopedia Google Looker Card -->
+    <!-- Tokopedia Google Looker -->
     <div class="card" onclick="openLookerModal()">
       <div class="thumb quad-thumb">
         <div class="thumb-quarter">
@@ -640,6 +671,7 @@
       </div>
     </div>
 
+    <!-- Forecasting Model -->
     <div class="card">
       <div class="thumb">
         <div class="thumb-placeholder">Model Output</div>
@@ -794,6 +826,73 @@
   </div>
 </div>
 
+<!-- ---------- Duolingo CRM Detail Modal ---------- -->
+<div id="duolingoModal" class="modal" onclick="closeDuolingoModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="forceCloseDuolingoModal()">&times;</button>
+    <span class="badge">SQL · Group Project</span>
+    <h2>CRM Analysis: Missed Conversions &amp; Churn (Duolingo)</h2>
+    <div class="modal-period">Jan - Mar 2026</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>This project analyzed a simulated CRM database modeled after Duolingo's freemium subscription business, combining user profiles, email campaign logs, and subscription and payment records. The goal was to study two connected problems: users who engage heavily but never upgrade to a paid tier, and paying subscribers who cancel with little warning.</p>
+      
+      <p>Using SQL to build engagement thresholds, cohort comparisons, and time-based churn windows, the analysis aimed to turn behavioral signals already sitting in the data into targeting rules a CRM team could act on.</p>
+
+      <h3>1. Database Architecture</h3>
+      <p>The underlying relational model links user profiles across campaign interactions, learning sessions, lesson attempts, active subscriptions, and payment history via <code>user_id</code>.</p>
+      
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="erd.png" alt="CRM Database Structure ERD">
+          <caption>Entity Relationship Diagram (ERD) mapping the relational CRM schema.</caption>
+        </div>
+      </div>
+
+      <h3>2. Missed Conversions &amp; Engagement Patterns</h3>
+      <p>The strongest predictor of upgrading turned out to be sustained engagement, not short-term intensity. Users in the top XP quartile converted at roughly three times the rate of users in the bottom three quartiles, and a moderate cadence of about two sessions per week combined with a three to nine day streak produced the highest upgrade rates (72.9%).</p>
+      
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="upgrade_rate.png" alt="Upgrade Rate by Engagement Threshold">
+          <caption>Figure 1: Upgrade rates across XP Quartiles, Streak Lengths, and Weekly Session Frequencies.</caption>
+        </div>
+      </div>
+
+      <p>Conversion also varied meaningfully by course and language pairing. <strong>English for Spanish Speakers</strong> converted at 41.2%, compared to 27.9% for <strong>Turkish for English Speakers</strong>, suggesting premium messaging should be tailored by course rather than applied uniformly.</p>
+
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="conversion_rate.png" alt="Conversion Rate by Course / Language Pair">
+          <caption>Figure 2: Conversion rate benchmarks broken down by language pairing.</caption>
+        </div>
+      </div>
+
+      <p>A separate check on email-engaged users found that opening or clicking a campaign email was a weak signal on its own. Of 2,634 engaged users, only 241 converted (~91% non-conversion rate), with acquisition channel and device combination explaining more of the gap than region did.</p>
+
+      <h3>3. Surprise Churn Dynamics</h3>
+      <p>Cancellations were rarely sudden. Users who eventually churned showed measurably lower session counts, active days, and XP in the 7, 14, and 30-day windows before cancellation compared to retained users. Even within the churned group, engagement dipped further in the final week relative to the week prior.</p>
+
+      <p>Plan tier and auto-renew settings also played a key role: <strong>Super plan subscribers with auto-renew turned off churned at 46.5%</strong>—representing the largest recoverable segment in the dataset—while <strong>Max plan users churned fastest overall</strong> (canceling after an average of ~29 days vs. ~219 days for Family plan subscribers).</p>
+
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="churn_rate.png" alt="Churn Rate by Plan Tier &amp; Auto-Renew Setting">
+          <caption>Figure 3: Churn rates across Family, Max, and Super tiers segmented by auto-renew status.</caption>
+        </div>
+      </div>
+
+      <h3>Strategic Recommendations</h3>
+      <ul>
+        <li><strong>Segmented Upgrade Prompts:</strong> Trigger personalized upgrade prompts for the high-XP, moderate-activity segment rather than messaging all engaged users equally.</li>
+        <li><strong>Course-Specific Paywalls:</strong> Prioritize paywall placements around the strongest converting course/language pairs while investigating user friction in weaker performing courses.</li>
+        <li><strong>Win-Back &amp; Retention Campaigns:</strong> Run targeted auto-renew recovery campaigns aimed at Super plan users with auto-renew switched off, utilizing early engagement drops as an intervention window prior to cancellation.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- ---------- Tokopedia Looker Detail Modal ---------- -->
 <div id="lookerModal" class="modal" onclick="closeLookerModal(event)">
   <div class="modal-content">
@@ -894,6 +993,24 @@
 
   function forceCloseTableauModal() {
     document.getElementById('tableauModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Duolingo Modal */
+  function openDuolingoModal() {
+    document.getElementById('duolingoModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDuolingoModal(e) {
+    if (e.target.classList.contains('modal')) {
+      document.getElementById('duolingoModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function forceCloseDuolingoModal() {
+    document.getElementById('duolingoModal').classList.remove('active');
     document.body.style.overflow = '';
   }
 
