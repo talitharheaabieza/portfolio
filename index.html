@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Talitha - Portfolio</title>
+<title>Talitha Rhea Abieza - Data Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -70,18 +70,14 @@
   }
 
   .header-text h1 {
-    font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 34px;
     margin: 0 0 12px;
     letter-spacing: -0.02em;
     color: var(--ink);
-    white-space: nowrap;
   }
 
   .header-text h1 span {
-    font-weight: 700;
-    font-size: 34px;
     color: var(--muted);
     margin-left: 8px;
   }
@@ -109,7 +105,6 @@
 
   /* ---------- Section Labels ---------- */
   .section-label {
-    font-family: 'Inter', sans-serif;
     font-size: 26px;
     font-weight: 700;
     letter-spacing: -0.01em;
@@ -163,7 +158,20 @@
   .card.featured .thumb { aspect-ratio: 16 / 9; }
   .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  /* ---------- Dual Thumbnail Layout ---------- */
+  /* Code-based Metric Preview Box (for cards without images) */
+  .code-thumb-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* Dual Thumbnail Layout (like MSIG) */
   .dual-thumb {
     display: flex !important;
     gap: 2px;
@@ -198,7 +206,7 @@
     backdrop-filter: blur(4px);
   }
 
-  /* ---------- Quad Thumbnail Layout (2x2 Grid) ---------- */
+  /* Quad Thumbnail Layout (2x2 Grid, like Duolingo/Looker) */
   .quad-thumb {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
@@ -222,6 +230,32 @@
     display: block;
   }
 
+  /* Dual Metric/Text Thumb Box (like MBA) */
+  .code-thumb-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    background: #F9FAFB;
+    gap: 1px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .code-thumb-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background: #FFFFFF;
+    text-align: center;
+  }
+
+  .code-thumb-half:first-child {
+    border-right: 1px solid var(--line);
+    background: #EFF6FF;
+  }
+
   .meta { padding: 20px 24px 24px; display: flex; flex-direction: column; flex-grow: 1; }
 
   .badge-row {
@@ -233,17 +267,13 @@
 
   .badge {
     display: inline-block;
-    align-self: flex-start;
     padding: 4px 10px;
     background: #F3F4F6;
     color: var(--ink);
     border-radius: 6px;
     font-size: 12px;
     font-weight: 500;
-    margin-bottom: 12px;
   }
-
-  .badge-row .badge { margin-bottom: 0; }
 
   .click-hint {
     font-size: 12px;
@@ -251,15 +281,7 @@
     font-weight: 500;
   }
 
-  .card-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.5;
-    margin: 0 0 16px;
-  }
-
   .title {
-    font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 17px;
     line-height: 1.4;
@@ -268,7 +290,70 @@
   }
 
   .card.featured .title { font-size: 20px; }
+
+  .card-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0 0 16px;
+  }
+
   .period { font-size: 13px; color: var(--muted); margin-top: auto; }
+
+  /* ---------- Insight Grid (Code-based metric cards) ---------- */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+
+  .insight-card {
+    background: #F9FAFB;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .insight-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .insight-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .insight-stat {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .insight-card p {
+    font-size: 13px !important;
+    color: var(--muted);
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    margin-top: 72px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
 
   /* ---------- Modal Overlay & Content ---------- */
   .modal {
@@ -316,7 +401,6 @@
   }
 
   .modal-content h2 {
-    font-family: 'Inter', sans-serif;
     font-size: 24px;
     font-weight: 700;
     margin: 12px 0 4px;
@@ -339,6 +423,15 @@
     font-size: 15px;
     color: var(--muted);
     line-height: 1.6;
+  }
+
+  .modal-body code {
+    background: #F3F4F6;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--ink);
+    display: inline-block;
   }
 
   .modal-body ul {
@@ -367,14 +460,20 @@
     text-align: center;
   }
 
-  /* ---------- Footer ---------- */
-  footer {
-    text-align: center;
-    margin-top: 72px;
-    font-size: 13px;
-    color: var(--muted);
-    border-top: 1px solid var(--line);
-    padding-top: 32px;
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .header { flex-direction: column; text-align: center; padding: 32px; align-items: center; }
+    .links { justify-content: center; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .card.featured { grid-column: span 2; }
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 32px 16px 64px; }
+    .grid { grid-template-columns: 1fr; }
+    .card.featured { grid-column: span 1; }
+    .modal-content { padding: 24px; }
+    .insight-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -401,12 +500,12 @@
   </div>
 
   <div class="section-label">Selected Work</div>
-  <div class="section-sub">A curated selection of client projects, analytics solutions, and interactive dashboards.</div>
+  <div class="section-sub">A curated selection of client projects, analytics solutions, and academic studies.</div>
 
   <!-- Portfolio Grid -->
   <div class="grid">
 
-    <!-- MSIG Asia -->
+    <!-- 1. MSIG Asia -->
     <div class="card featured" onclick="openModal('msigModal')">
       <div class="thumb dual-thumb">
         <div class="thumb-half">
@@ -423,28 +522,64 @@
           <span class="badge">Power BI · Client Project</span>
           <span class="click-hint">Click for details ↗</span>
         </div>
-        <div class="title">Channel Performance Dashboard (MSIG Indonesia &amp; Singapore)</div>
+        <div class="title">Regional Channel Performance Dashboard (MSIG Indonesia &amp; Singapore)</div>
         <p class="card-desc">
-          Client project with MSIG Asia Pte Ltd via NUS MSc MAI. Consolidated raw multi-source data into automated Power BI dashboards to track cross-border channel performance and target completion.
+          Consolidated raw multi-source regional data into automated Power BI dashboards to track cross-border channel performance and target completion against historic KPIs.
         </p>
         <div class="period">Apr - Jul 2026</div>
       </div>
     </div>
 
-    <!-- Duolingo CRM Analysis -->
+    <!-- 2. Thompson Sampling 커피 -->
+    <div class="card" onclick="openModal('thompsonModal')">
+      <div class="thumb">
+        <img src="thompson_1.png" alt="Bandit Traffic Allocation">
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Machine Learning Experiment</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Thompson Sampling Ad Creative Optimization (XYZ Coffee)</div>
+        <p class="card-desc">
+          Evaluated multi-armed bandit traffic allocation against static A/B testing, utilizing Python and statistical modeling to increase real-time conversion rates.
+        </p>
+        <div class="period">Jan - Apr 2026</div>
+      </div>
+    </div>
+
+    <!-- 3. Tableau practice -->
+    <div class="card" onclick="openModal('tableauModal')">
+      <div class="thumb">
+        <img src="Tableau.png" alt="Tableau Dashboard Screenshot">
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Tableau · practice project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Interactive Customer Analytics practice Dashboard</div>
+        <p class="card-desc">
+          practice project built to strengthen Tableau data visualization skills using public marketing data to analyze customer behavior and campaign performance.
+        </p>
+        <div class="period">Jan - Apr 2026</div>
+      </div>
+    </div>
+
+    <!-- 4. Duolingo CRM SQL -->
     <div class="card" onclick="openModal('duolingoModal')">
       <div class="thumb quad-thumb">
         <div class="thumb-quarter">
-          <img src="duolingo1.png" alt="CRM Database Structure ERD">
+          <img src="duolingo1.png" alt="CRM ERD Diagram">
         </div>
         <div class="thumb-quarter">
-          <img src="duolingo2.png" alt="Upgrade Rate by Engagement Threshold">
+          <img src="duolingo2.png" alt="Upgrade Rate Chart">
         </div>
         <div class="thumb-quarter">
-          <img src="duolingo3.png" alt="Conversion Rate by Course Pair">
+          <img src="duolingo3.png" alt="Conversion Rate Chart">
         </div>
         <div class="thumb-quarter">
-          <img src="duolingo4.png" alt="Churn Rate by Plan Tier and Auto-Renew">
+          <img src="duolingo4.png" alt="Churn Rate Chart">
         </div>
       </div>
       <div class="meta">
@@ -452,11 +587,856 @@
           <span class="badge">SQL · Group Project</span>
           <span class="click-hint">Click for details ↗</span>
         </div>
-        <div class="title">CRM Analysis: Missed Conversions &amp; Churn (Duolingo)</div>
+        <div class="title">CRM Analytics: Modeling Missed Conversions and Churn Indicators (Duolingo)</div>
         <p class="card-desc">
-          SQL-driven analysis modeling user engagement, email campaign conversions, and time-based churn indicators across a freemium CRM database.
+          Modeled complex freemium user journeys and campaign interaction logs using SQL to identify critical engagement drop-off points and churn predictors.
         </p>
         <div class="period">Jan - Mar 2026</div>
+      </div>
+    </div>
+
+    <!-- 5. MBA R-restaurant -->
+    <div class="card" onclick="openModal('marketBasketModal')">
+      <div class="thumb">
+        <div class="code-thumb-split">
+          <div class="code-thumb-half">
+            <div style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+              Noon Bundle
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--ink);">
+              Day Combo
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+              Mains + Non-Coffee
+            </div>
+          </div>
+          <div class="code-thumb-half">
+            <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+              Night Bundle
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--ink);">
+              Evening Treat
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+              Dessert + Coffee
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">R · NUS Course Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Market Basket Analysis (XYZ Restaurant, Indonesia)</div>
+        <p class="card-desc">
+          Conducted association rule mining in R on transactional sales data to evaluate item co-occurrences across different dayparts, informing menu optimization.
+        </p>
+        <div class="period">Aug - Dec 2025</div>
+      </div>
+    </div>
+
+    <!-- 6. B2B Sales Python -->
+    <div class="card" onclick="openModal('b2bModal')">
+      <div class="thumb dual-thumb">
+        <div class="thumb-half">
+          <img src="b2b1.png" alt="Sales by Category">
+          <span class="thumb-label">Product Category</span>
+        </div>
+        <div class="thumb-half">
+          <img src="b2b3.png" alt="Sales by Stakeholder Group">
+          <span class="thumb-label">Stakeholder Group</span>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Python · NUS Course Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">B2B Sales Regression Analysis (XYZ Company, Indonesia)</div>
+        <p class="card-desc">
+          Built an explanatory regression model to identify key demand drivers, specifically discount elasticity, across transactional data using Python and Statsmodels.
+        </p>
+        <div class="period">Aug - Nov 2025</div>
+      </div>
+    </div>
+
+    <!-- 7. Hawker study R -->
+    <div class="card" onclick="openModal('hawkerModal')">
+      <div class="thumb">
+        <div class="code-thumb-box">
+          <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            Key Predictor
+          </div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--accent);">
+            Functional &amp; Utility
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
+            Primary Driver of Hawker Preference
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">R · NUS Academic Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Consumer Perception Study: Hawker Centres vs Modern Dining</div>
+        <p class="card-desc">
+          Executed a mixed-methods study combining R statistical analytics (Factor and Cluster analysis) with Focus Group Discussions to evaluate Singapore youth dining behavior.
+        </p>
+        <div class="period">Aug - Nov 2025</div>
+      </div>
+    </div>
+
+    <!-- 8. Looker Tokopedia -->
+    <div class="card" onclick="openModal('lookerModal')">
+      <div class="thumb quad-thumb">
+        <div class="thumb-quarter">
+          <img src="L0 Performance.png" alt="L0 Performance">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L0 Comparison.png" alt="L0 Comparison">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L2 Performance.png" alt="L2 Performance">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L2 Comparison.png" alt="L2 ComparisonThis code represents the complete, fully assembled `index.html` file. It incorporates all projects, the specific image grid thumbnails for the MSIG, Duolingo, B2B Sales, and Looker cards, and the finalized visual gallery for the Market Basket Analysis modal using your selections (2, 5, 8, 9).
+
+You can save this code as `index.html` to view the finished portfolio.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talitha Rhea Abieza - Data Portfolio</title>
+<link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+<link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F8F9FA;
+    --card: #FFFFFF;
+    --ink: #111827;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --accent: #2563EB;
+    --accent-light: #EFF6FF;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding: 64px 24px 110px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Header ---------- */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 48px;
+    margin-bottom: 56px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .photo {
+    flex: 0 0 136px;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #F3F4F6;
+    border: 4px solid #FFFFFF;
+    box-shadow: var(--shadow-md);
+  }
+
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .header-text { flex: 1; }
+
+  .greeting {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .header-text h1 {
+    font-weight: 700;
+    font-size: 34px;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .header-text h1 span {
+    color: var(--muted);
+    margin-left: 8px;
+  }
+
+  .header-text p {
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .links a { transition: opacity 0.2s ease; }
+  .links a:hover { text-decoration: underline; opacity: 0.85; }
+  .links .sep { color: var(--line); user-select: none; }
+
+  /* ---------- Section Labels ---------- */
+  .section-label {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  /* ---------- Gallery Grid ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: #D1D5DB;
+  }
+
+  .card.featured { grid-column: span 2; }
+
+  .thumb {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card.featured .thumb { aspect-ratio: 16 / 9; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Pure CSS Code Metric Preview Box */
+  .code-thumb-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* Dual Thumbnail Layout (e.g., MSIG) */
+  .dual-thumb {
+    display: flex !important;
+    gap: 2px;
+    background: var(--line);
+  }
+
+  .thumb-half {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+
+  .thumb-half img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thumb-label {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(17, 24, 39, 0.8);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Quad Thumbnail Layout (2x2 Grid, e.g., Duolingo/Looker) */
+  .quad-thumb {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: var(--line);
+  }
+
+  .thumb-quarter {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+
+  .thumb-quarter img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Dual Metric/Text Thumb Box (e.g., MBA) */
+  .code-thumb-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    background: #F9FAFB;
+    gap: 1px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .code-thumb-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background: #FFFFFF;
+    text-align: center;
+  }
+
+  .code-thumb-half:first-child {
+    border-right: 1px solid var(--line);
+    background: #EFF6FF;
+  }
+
+  .meta { padding: 20px 24px 24px; display: flex; flex-direction: column; flex-grow: 1; }
+
+  .badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #F3F4F6;
+    color: var(--ink);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .click-hint {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+
+  .card.featured .title { font-size: 20px; }
+
+  .card-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0 0 16px;
+  }
+
+  .period { font-size: 13px; color: var(--muted); margin-top: auto; }
+
+  /* ---------- Insight Grid (Metric cards in modals) ---------- */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+
+  .insight-card {
+    background: #F9FAFB;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .insight-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .insight-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .insight-stat {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .insight-card p {
+    font-size: 13px !important;
+    color: var(--muted);
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    margin-top: 72px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
+
+  /* ---------- Modal Overlay & Content ---------- */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(6px);
+    padding: 40px 20px;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal.active { display: flex; }
+
+  .modal-content {
+    background: #FFFFFF;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border: none;
+    background: #F3F4F6;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 12px 0 4px;
+  }
+
+  .modal-period {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .modal-body h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0 8px;
+    color: var(--ink);
+  }
+
+  .modal-body p, .modal-body li {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .modal-body code {
+    background: #F3F4F6;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--ink);
+    display: inline-block;
+  }
+
+  .modal-body ul {
+    padding-left: 20px;
+    margin: 0 0 20px;
+  }
+
+  .modal-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 16px;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+
+  .gallery-item caption {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="photo">
+      <img src="photo.png" alt="Talitha Rhea Abieza">
+    </div>
+    <div class="header-text">
+      <div class="greeting">Hi! I'm</div>
+      <h1>Talitha <span>Rhea Abieza</span></h1>
+      <p>I specialize in consumer insights and data storytelling, transforming complex data into actionable business insights using Power BI, Google Looker Studio, and Tableau for visualization, alongside SQL, R, and Python for data preparation, analysis, and modeling. Backed by a Master's degree in Marketing Analytics &amp; Insights and five years of experience at Tokopedia, this portfolio showcases a selection of my work.</p>
+      <div class="links">
+        <a href="mailto:talitha.abieza@u.nus.edu">talitha.abieza@u.nus.edu</a>
+        <span class="sep">·</span>
+        <a href="[https://www.linkedin.com/in/talithabieza/](https://www.linkedin.com/in/talithabieza/)" target="_blank">LinkedIn ↗</a>
+        <span class="sep">·</span>
+        <a href="[https://wa.me/6281322275091](https://wa.me/6281322275091)" target="_blank">WhatsApp ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Selected Work</div>
+  <div class="section-sub">A curated selection of client projects, analytics solutions, and academic studies.</div>
+
+  <!-- Portfolio Grid -->
+  <div class="grid">
+
+    <!-- 1. MSIG Asia - Configured with dual images and correct modal -->
+    <div class="card featured" onclick="openModal('msigModal')">
+      <div class="thumb dual-thumb">
+        <div class="thumb-half">
+          <img src="msig-id.png" alt="MSIG Indonesia Dashboard">
+          <span class="thumb-label">Indonesia</span>
+        </div>
+        <div class="thumb-half">
+          <img src="msig-sg.png" alt="MSIG Singapore Dashboard">
+          <span class="thumb-label">Singapore</span>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Power BI · Client Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Regional Channel Performance Dashboard (MSIG Indonesia &amp; Singapore)</div>
+        <p class="card-desc">
+          Consolidated raw multi-source regional data into automated Power BI dashboards to track cross-border channel performance and target completion against historic KPIs.
+        </p>
+        <div class="period">Apr - Jul 2026</div>
+      </div>
+    </div>
+
+    <!-- 2. Thompson Sampling (Coffee) -->
+    <div class="card" onclick="openModal('thompsonModal')">
+      <div class="thumb">
+        <img src="thompson_1.png" alt="Bandit Traffic Allocation">
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Machine Learning Experiment</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Thompson Sampling Ad Creative Optimization (XYZ Coffee)</div>
+        <p class="card-desc">
+          Evaluated multi-armed bandit traffic allocation against static A/B testing, utilizing Python and statistical modeling to increase real-time conversion rates.
+        </p>
+        <div class="period">Jan - Apr 2026</div>
+      </div>
+    </div>
+
+    <!-- 3. Tableau Practice -->
+    <div class="card" onclick="openModal('tableauModal')">
+      <div class="thumb">
+        <img src="Tableau.png" alt="Tableau Dashboard Screenshot">
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Tableau · practice project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Interactive Customer Analytics practice Dashboard</div>
+        <p class="card-desc">
+          Practice project built to strengthen Tableau data visualization skills using public marketing data to analyze customer behavior and campaign performance.
+        </p>
+        <div class="period">Jan - Apr 2026</div>
+      </div>
+    </div>
+
+    <!-- 4. Duolingo CRM SQL - Configured with quad images and correct modal -->
+    <div class="card" onclick="openModal('duolingoModal')">
+      <div class="thumb quad-thumb">
+        <div class="thumb-quarter">
+          <img src="duolingo1.png" alt="CRM ERD Diagram">
+        </div>
+        <div class="thumb-quarter">
+          <img src="duolingo2.png" alt="Upgrade Rate Chart">
+        </div>
+        <div class="thumb-quarter">
+          <img src="duolingo3.png" alt="Conversion Rate Chart">
+        </div>
+        <div class="thumb-quarter">
+          <img src="duolingo4.png" alt="Churn Rate Chart">
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">SQL · Group Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">CRM Analytics: Modeling Missed Conversions and Churn Indicators (Duolingo)</div>
+        <p class="card-desc">
+          Modeled complex freemium user journeys and campaign interaction logs using SQL to identify critical engagement drop-off points and churn predictors.
+        </p>
+        <div class="period">Jan - Mar 2026</div>
+      </div>
+    </div>
+
+    <!-- 5. Market Basket Analysis R - Configured with correct thumbnails -->
+    <div class="card" onclick="openModal('marketBasketModal')">
+      <div class="thumb">
+        <div class="code-thumb-split">
+          <div class="code-thumb-half">
+            <div style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+              Noon Bundle
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--ink);">
+              Day Combo
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+              Mains + Non-Coffee
+            </div>
+          </div>
+          <div class="code-thumb-half">
+            <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+              Night Bundle
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--ink);">
+              Evening Treat
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+              Dessert + Coffee
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">R · NUS Course Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Market Basket Analysis (XYZ Restaurant, Indonesia)</div>
+        <p class="card-desc">
+          Conducted association rule mining in R on transactional sales data to evaluate item co-occurrences across different dayparts, informing menu optimization.
+        </p>
+        <div class="period">Aug - Dec 2025</div>
+      </div>
+    </div>
+
+    <!-- 6. B2B Sales Python - Configured with dual images and correct modal -->
+    <div class="card" onclick="openModal('b2bModal')">
+      <div class="thumb dual-thumb">
+        <div class="thumb-half">
+          <img src="b2b1.png" alt="Sales by Category">
+          <span class="thumb-label">Product Category</span>
+        </div>
+        <div class="thumb-half">
+          <img src="b2b3.png" alt="Sales by Stakeholder Group">
+          <span class="thumb-label">Stakeholder Group</span>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Python · NUS Course Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">B2B Sales Regression Analysis (XYZ Company, Indonesia)</div>
+        <p class="card-desc">
+          Built an explanatory regression model to identify key demand drivers, specifically discount elasticity, across transactional data using Python and Statsmodels.
+        </p>
+        <div class="period">Aug - Nov 2025</div>
+      </div>
+    </div>
+
+    <!-- 7. Hawker Perception Study R -->
+    <div class="card" onclick="openModal('hawkerModal')">
+      <div class="thumb">
+        <div class="code-thumb-box">
+          <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            Key Predictor
+          </div>
+          <div style="font-size: 18px; font-weight: 700; color: var(--accent);">
+            Functional &amp; Utility
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
+            Primary Driver of Hawker Preference
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">R · NUS Academic Project</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Consumer Perception Study: Hawker Centres vs Modern Dining</div>
+        <p class="card-desc">
+          Executed a mixed-methods study combining R statistical analytics (Factor and Cluster analysis) with Focus Group Discussions to evaluate Singapore youth dining behavior.
+        </p>
+        <div class="period">Aug - Nov 2025</div>
+      </div>
+    </div>
+
+    <!-- 8. Looker Studio Tokopedia - Configured with quad images and correct modal -->
+    <div class="card" onclick="openModal('lookerModal')">
+      <div class="thumb quad-thumb">
+        <div class="thumb-quarter">
+          <img src="L0 Performance.png" alt="L0 Performance">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L0 Comparison.png" alt="L0 Comparison">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L2 Performance.png" alt="L2 Performance">
+        </div>
+        <div class="thumb-quarter">
+          <img src="L2 Comparison.png" alt="L2 Comparison">
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Google Looker Studio · practice Dashboard</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Overall performance Dashboard (Tokopedia Physical Goods)</div>
+        <p class="card-desc">
+          practice Dashboard replicating automated reporting systems to track e-Commerce performance, category breakdowns, and growth trends using simulated data.
+        </p>
+        <div class="period">Jan 2023 - Apr 2024</div>
+      </div>
+    </div>
+
+    <!-- 9. Run Rate Forecasting Tokopedia -->
+    <div class="card" onclick="openModal('forecastingModal')">
+      <div class="thumb">
+        <div class="code-thumb-box">
+          <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            Projection Error Gap
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px; font-weight: 700; color: #EF4444; text-decoration: line-through;">20–30%</span>
+            <span style="font-size: 20px; font-weight: 700; color: #10B981;">→ 5–10%</span>
+          </div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
+            Forecast vs. Actual Variance
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="badge-row">
+          <span class="badge">Tokopedia · Work Experience</span>
+          <span class="click-hint">Click for details ↗</span>
+        </div>
+        <div class="title">Run Rate Forecasting Model Refinement</div>
+        <p class="card-desc">
+          Redesigned historical run rate logic by factoring in weekday vs. weekend cycles, campaign spikes, and weighted seasonality to reduce sales projection variance.
+        </p>
+        <div class="period">Jan 2023 - Apr 2024</div>
       </div>
     </div>
 
@@ -466,7 +1446,9 @@
 
 </div>
 
-<!-- ---------- MSIG Detail Modal ---------- -->
+<!-- ========== MODALS ========== -->
+
+<!-- 1. MSIG Asia Modal -->
 <div id="msigModal" class="modal" onclick="closeModalOnBackdrop(event, 'msigModal')">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('msigModal')">&times;</button>
@@ -500,80 +1482,370 @@
   </div>
 </div>
 
-<!-- ---------- Duolingo CRM Detail Modal ---------- -->
-<div id="duolingoModal" class="modal" onclick="closeModalOnBackdrop(event, 'duolingoModal')">
+<!-- 2. Thompson Sampling Modal -->
+<div id="thompsonModal" class="modal" onclick="closeModalOnBackdrop(event, 'thompsonModal')">
   <div class="modal-content">
-    <button class="modal-close" onclick="closeModal('duolingoModal')">&times;</button>
-    <span class="badge">SQL · Group Project</span>
-    <h2>CRM Analysis: Missed Conversions &amp; Churn (Duolingo)</h2>
-    <div class="modal-period">Jan - Mar 2026</div>
+    <button class="modal-close" onclick="closeModal('thompsonModal')">&times;</button>
+    <span class="badge">Machine Learning Experiment · XYZ Coffee</span>
+    <h2>Thompson Sampling Ad Creative Optimization (XYZ Coffee)</h2>
+    <div class="modal-period">Jan - Apr 2026</div>
     
     <div class="modal-body">
       <h3>Project Overview</h3>
-      <p>This project analyzed a simulated CRM database modeled after Duolingo's freemium subscription business, combining user profiles, email campaign logs, and subscription/payment records. The goal was to identify churn patterns and optimize conversion triggers across free and paid tier users.</p>
+      <p>This project explores real-time ad creative optimization using a <strong>Thompson Sampling multi-armed bandit algorithm</strong>. Unlike traditional static A/B testing, which can waste traffic on underperforming creatives, Thompson Sampling dynamically shifts traffic toward winning variants while balancing the need for continued exploration.</p>
 
-      <h3>Key Analytical Focus Areas</h3>
+      <h3>Core Objectives</h3>
       <ul>
-        <li><strong>Database Modeling:</strong> Analyzed relational structure connecting user demographics, active lesson activity, marketing emails, and transaction histories.</li>
-        <li><strong>Conversion Thresholds:</strong> Evaluated engagement metrics (e.g., streak days, completed lessons) to determine optimal timing for upgrade prompts.</li>
-        <li><strong>Churn Dynamics:</strong> Modeled renewal behavior across auto-renew versus manual plan tiers to uncover time-based retention drops.</li>
+        <li>Maximize real-time click-through rates (CTR) and conversion volume.</li>
+        <li>Identify the root statistical cause behind creative performance differences.</li>
+        <li>Reduce the "cost of exploration" inherent in standard experimental design.</li>
       </ul>
 
-      <h3>Analysis Previews</h3>
+      <h3>Key Methodologies</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Bandit Algorithm</div>
+          <div class="insight-title">Adaptive Traffic</div>
+          <p>Implemented Thompson Sampling to dynamically shift impressions toward higher-performing creatives based on Bayesian probability.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Regression</div>
+          <div class="insight-title">Component Analysis</div>
+          <p>Utilized Python to deconstruct creatives, analyzing individual elements (motion vs. static, discount badge) as independent predictors.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Findings</div>
+          <div class="insight-title">Motion Hurts CTR</div>
+          <p>Regression revealed that animated elements actually reduced CTR (p&lt;0.01), as movement distracted from the primary offer.</p>
+        </div>
+      </div>
+
+      <h3>Visualizations</h3>
       <div class="modal-gallery">
         <div class="gallery-item">
-          <img src="duolingo1.png" alt="CRM Database Structure ERD">
-          <caption>Figure 1: CRM Database Entity Relationship Diagram</caption>
+          <img src="thompson_1.png" alt="Bandit Traffic Allocation over Time">
+          <caption>Traffic Allocation: The algorithm quickly learns to prefer Variant A (winning creative) over Variants B, C, and D.</caption>
         </div>
         <div class="gallery-item">
-          <img src="duolingo2.png" alt="Upgrade Rate by Engagement Threshold">
-          <caption>Figure 2: Upgrade Rate by User Engagement Threshold</caption>
-        </div>
-        <div class="gallery-item">
-          <img src="duolingo3.png" alt="Conversion Rate by Course Pair">
-          <caption>Figure 3: Conversion Rate across Language Course Pairs</caption>
-        </div>
-        <div class="gallery-item">
-          <img src="duolingo4.png" alt="Churn Rate by Plan Tier and Auto-Renew">
-          <caption>Figure 4: Churn Analysis by Subscription Tier &amp; Auto-Renew Settings</caption>
+          <img src="thompson_2.png" alt="A/B Test Static Allocation">
+          <caption>Comparison: Traditional A/B test splits traffic evenly (25% each), incurring high regret costs.</caption>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ---------- Modal Interactivity Scripts ---------- -->
+<!-- 3. Tableau Practice Modal -->
+<div id="tableauModal" class="modal" onclick="closeModalOnBackdrop(event, 'tableauModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('tableauModal')">&times;</button>
+    <span class="badge">Tableau · practice project</span>
+    <h2>Interactive Customer Analytics practice Dashboard</h2>
+    <div class="modal-period">Jan - Apr 2026</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>This is an independent practice project developed to master advanced Tableau features and interactive dashboard design. Using a standard Kaggle marketing dataset, I modeled customer behavior, analyzed purchasing channels, and tracked campaign performance.</p>
+      
+      <p>I focused on creating an interactive story, allowing users to drill down into specific segments via dynamic filtering.</p>
+
+      <div class="btn-container" style="margin: 20px 0;">
+        <a href="[https://public.tableau.com/app/profile/talitha.abieza/viz/Portfolio_TalithaRheaAbieza/Dashboard1](https://public.tableau.com/app/profile/talitha.abieza/viz/Portfolio_TalithaRheaAbieza/Dashboard1)" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #FFFFFF; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none;">
+          View Live Dashboard on Tableau Public ↗
+        </a>
+      </div>
+
+      <h3>Dashboard Screenshot</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="Tableau.png" alt="Tableau Dashboard Screenshot">
+          <caption>The complete interactive practice dashboard.</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Duolingo Modal -->
+<div id="duolingoModal" class="modal" onclick="closeModalOnBackdrop(event, 'duolingoModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('duolingoModal')">&times;</button>
+    <span class="badge">SQL · Group Project</span>
+    <h2>CRM Analytics: Modeling Missed Conversions and Churn Indicators (Duolingo)</h2>
+    <div class="modal-period">Jan - Mar 2026</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>This project analyzed a simulated CRM database modeled after Duolingo's freemium subscription business, combining user profiles, lesson activity logs, marketing email interaction data, and transactional history. The goal was to identify critical engagement drop-off points for free users and early churn indicators for paid subscribers.</p>
+
+      <h3>Key Analytical Focus Areas</h3>
+      <ul>
+        <li><strong>Conversion Thresholds:</strong> Modeled upgrade likelihood based on lesson frequency and streak duration using complex SQL joins and window functions.</li>
+        <li><strong>Missed Conversions:</strong> Identified "highly engaged but non-converting" free users by querying lesson activity against purchase logs.</li>
+        <li><strong>Churn Prediction:</strong> Modeled subscription renewal behavior across different tiers (Super vs. Max) and payment cadence (Auto-renew vs. manual).</li>
+      </ul>
+
+      <h3>Data Visualizations (derived from SQL output)</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="duolingo1.png" alt="CRM Database Structure ERD">
+          <caption>Figure 1: CRM Database Entity-Relationship Diagram mapping user journeys.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="duolingo2.png" alt="Upgrade Conversion Rate by Engagement Threshold">
+          <caption>Figure 2: User Upgrade conversion rate plotted against lesson activity thresholds.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="duolingo3.png" alt="Conversion Rate across Language Pairs">
+          <caption>Figure 3: Conversion rates by language course (English speakers converting lowest).</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="duolingo4.png" alt="Churn Rate by Subscription Plan and Cadence">
+          <caption>Figure 4: Paid subscriber churn rate based on plan tier and auto-renewal settings.</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. Market Basket Analysis Modal - Configured with specific gallery images -->
+<div id="marketBasketModal" class="modal" onclick="closeModalOnBackdrop(event, 'marketBasketModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('marketBasketModal')">&times;</button>
+    <span class="badge">R · NUS Course Project</span>
+    <h2>Market Basket Analysis (XYZ Restaurant, Indonesia)</h2>
+    <div class="modal-period">Aug - Dec 2025</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>Conducted association rule mining in R on transactional sales data from a local Indonesian F&amp;B chain to evaluate item co-occurrences across different dayparts (noon vs. night) and optimize menu engineering.</p>
+      
+      <h3>Key Insights &amp; Applications</h3>
+      <ul>
+        <li><strong>Temporal Sales Spikes:</strong> Sales peaks align heavily around 14:00 (lunch) and 20:00 (dinner), establishing clear bounds for daypart-specific promotions.</li>
+        <li><strong>Noon Strategy:</strong> High association between heavy meals and non-coffee beverages (e.g., Fried Rice + Mineral Water).</li>
+        <li><strong>Night Strategy:</strong> Shift toward indulgence and social pairing, showing strong lift between desserts and coffee (e.g., Chocolate Cheese Fried Banana + Signature Milk Coffee).</li>
+      </ul>
+
+      <h3>Analysis &amp; Visualizations</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="Market Basket2.png" alt="Total Sales Value by Hour">
+          <caption>Figure 1: Hourly sales distribution identifying peak operational windows.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="Market Basket5.png" alt="Noon Product Association Rules">
+          <caption>Figure 2: Top product association rules for Noon daypart (Mains + Non-Coffee).</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="Market Basket8.png" alt="Night Product Association Rules">
+          <caption>Figure 3: Top product association rules for Night daypart (Desserts + Coffee).</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="Market Basket9.png" alt="Noon Menu Layout Weighted Scores">
+          <caption>Figure 4: Menu engineering matrix ranking categories for noon menu layout.</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. B2B Sales Regression Modal - Configured with specific gallery images -->
+<div id="b2bModal" class="modal" onclick="closeModalOnBackdrop(event, 'b2bModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('b2bModal')">&times;</button>
+    <span class="badge">Python · NUS Course Project</span>
+    <h2>B2B Sales Regression Analysis (XYZ Company, Indonesia)</h2>
+    <div class="modal-period">Aug - Nov 2025</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>Built an explanatory OLS regression model in Python to identify key demand drivers across 3,700+ B2B transactions for an Indonesian flavoring manufacturer.</p>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li><strong>Pricing Sensitivity:</strong> Identified a significant volume lift (+450%) associated with specific discount tiers.</li>
+        <li><strong>Commercial Optimization:</strong> Recommended refined discount structures to balance order volume growth with profit margin preservation.</li>
+      </ul>
+
+      <h3>Analysis &amp; Visualizations</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="b2b1.png" alt="Total Quantity Sold &amp; Nett Sales by Product Category">
+          <caption>Total Quantity Sold &amp; Nett Sales by Product Category</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="b2b2.png" alt="Total Quantity Sold &amp; Nett Sales per Stakeholder">
+          <caption>Total Quantity Sold &amp; Nett Sales per Stakeholder</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="b2b3.png" alt="Total Sales Contribution by Stakeholder Group">
+          <caption>Total Sales Contribution by Stakeholder Group</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. Hawker Study Modal -->
+<div id="hawkerModal" class="modal" onclick="closeModalOnBackdrop(event, 'hawkerModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('hawkerModal')">&times;</button>
+    <span class="badge">R · NUS Academic Project</span>
+    <h2>Consumer Perception Study: Hawker Centres vs Modern Dining</h2>
+    <div class="modal-period">Aug - Nov 2025</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>This NUS MSc MAI project evaluated Singapore youth dining preferences between traditional hawker centres and modern options (cafes, restaurants, food courts). I executed a mixed-methods approach combining statistical analysis of survey data in R with sentiment analysis of Focus Group Discussions (FGDs).</p>
+
+      <h3>Methodologies &amp; Key Stats</h3>
+      <ul>
+        <li><strong>Quantitative:</strong> Factor analysis and Cluster analysis (K-means) performed on N=70 survey responses using RStudio.</li>
+        <li><strong>Qualitative:</strong> Thematic analysis conducted on N=5 FGD participants to explore underlying emotional drivers (nostalgia vs. convenience).</li>
+      </ul>
+
+      <h3>Key Findings</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Driver 1</div>
+          <div class="insight-title">Functional Utility</div>
+          <p>Price accessibility and speed are the primary factors driving hawker visits (p&lt;0.05).</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Driver 2</div>
+          <div class="insight-title">Ambience Friction</div>
+          <p>Poor ventilation and perceived lower hygiene constitute the major friction points for frequent hawker dining.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Segmentation</div>
+          <div class="insight-title">"Occasional" Segment</div>
+          <p>Cluster analysis identified the "Occasional Hawker Diner" as a massive growth opportunity for digitization initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8. Looker Studio Modal - Configured with quad images -->
+<div id="lookerModal" class="modal" onclick="closeModalOnBackdrop(event, 'lookerModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('lookerModal')">&times;</button>
+    <span class="badge">Google Looker Studio · practice Dashboard</span>
+    <h2>Overall performance Dashboard (Tokopedia Physical Goods)</h2>
+    <div class="modal-period">Jan 2023 - Apr 2024</div>
+    
+    <div class="modal-body">
+      <h3>Project Overview</h3>
+      <p>This is an independent practice Dashboard replicating an enterprise-level reporting system modeled on the Tokopedia Physical Goods vertical. Built using Google Looker Studio and simulated dataset, it consolidates transaction performance, MoM growth metrics, and product category trends into a single automated view.</p>
+
+      <h3>Core Features</h3>
+      <ul>
+        <li><strong>L0 Overview:</strong> Macro-level vertical tracking of sales, orders, and active listings.</li>
+        <li><strong>Category Deep-Dive:</strong> Granular performance monitoring across product levels (L0 to L2 categories).</li>
+        <li><strong>Growth Insights:</strong> Dynamic comparison widgets for Month-over-Month (MoM) and Year-over-Year (YoY) performance.</li>
+      </ul>
+
+      <h3>Dashboard Screenshots</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="L0 Performance.png" alt="L0 Performance vertical tracker">
+          <caption>Macro View: L0 Performance vertical tracker.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="L0 Comparison.png" alt="MoM L0 Growth Comparison">
+          <caption>Growth View: Month-over-Month (MoM) L0 growth comparison.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="L2 Performance.png" alt="L2 Sub-category Performance tracker">
+          <caption>Granular View: L2 Sub-category Performance tracker.</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="L2 Comparison.png" alt="MoM L2 Growth Comparison">
+          <caption>Detailed Growth View: Month-over-Month (MoM) L2 growth comparison.</caption>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. Run Rate Forecasting Modal -->
+<div id="forecastingModal" class="modal" onclick="closeModalOnBackdrop(event, 'forecastingModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('forecastingModal')">&times;</button>
+    <span class="badge">Tokopedia · Work Experience</span>
+    <h2>Run Rate Forecasting Model Refinement</h2>
+    <div class="modal-period">Jan 2023 - Apr 2024</div>
+    
+    <div class="modal-body">
+      <h3>Problem Statement</h3>
+      <p>The previous internal forecasting logic relied heavily on simple linear projections, causing significant variance (up to 30%) during volatile promotional campaign periods or off-peak weekends.</p>
+
+      <h3>Refinement Strategy</h3>
+      <p>I spearheaded a logic refinement by deconstructing historical sales patterns into three predictive components:</p>
+      <ul>
+        <li><strong>Weekday vs. Weekend Seasonality:</strong> Modeled unique daily velocity factors across product verticals.</li>
+        <li><strong>Campaign Impact Weights:</strong> Formulated historical 'campaign spike' ratios to adjust projections dynamically during known promotion dates.</li>
+        <li><strong>Weighted Recency:</strong> Implemented weighted moving averages to prioritize immediate preceding daily performance over distant historic data.</li>
+      </ul>
+
+      <h3>Business Impact</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-tag">Variance Reduction</div>
+          <div class="insight-title">30% &rarr; 10%</div>
+          <p>Reduced the error gap of sales projections by factor of 3 org-wide.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Commercial Planning</div>
+          <div class="insight-title">Optimized AOV</div>
+          <p>Improved accuracy allowed commercial teams to optimize AOV-enhancing bundles during forecast off-peak periods.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Stakeholder Trust</div>
+          <div class="insight-title">Methodology Shift</div>
+          <p>Successfully migrated commercial teams from reactive linear modeling to proactive seasonal forecasting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ---------- JavaScript ---------- -->
 <script>
-  function openModal(id) {
-    const modal = document.getElementById(id);
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
     if (modal) {
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; // Lock background scrolling
     }
   }
 
-  function closeModal(id) {
-    const modal = document.getElementById(id);
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
     if (modal) {
       modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = ''; // Restore background scrolling
     }
   }
 
-  function closeModalOnBackdrop(event, id) {
-    if (event.target.id === id) {
-      closeModal(id);
+  function closeModalOnBackdrop(event, modalId) {
+    // If user clicks on the backdrop (the modal overlay itself), close it
+    if (event.target.id === modalId) {
+      closeModal(modalId);
     }
   }
 
+  // Close active modal on Escape key press
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-      const activeModals = document.querySelectorAll('.modal.active');
-      activeModals.forEach(modal => {
-        closeModal(modal.id);
-      });
+      const activeModal = document.querySelector('.modal.active');
+      if (activeModal) {
+        closeModal(activeModal.id);
+      }
     }
   });
 </script>
+
 </body>
 </html>
