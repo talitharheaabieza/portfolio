@@ -652,7 +652,7 @@
         </div>
         <div class="title">Market Basket Analysis (XYZ Restaurant, Indonesia)</div>
         <p class="card-desc">
-          Conducted for a local Indonesian F&amp;B restaurant chain using R to uncover product affinities across dayparts (noon vs. night) and design data-driven menu bundles.
+          Conducting for a local Indonesian F&amp;B restaurant chain using R to uncover product affinities across dayparts (noon vs. night) and design data-driven menu bundles.
         </p>
         <div class="period">Aug - Dec 2025</div>
       </div>
@@ -660,17 +660,14 @@
 
     <!-- B2B Sales Regression -->
     <div class="card" onclick="openModal('b2bModal')">
-      <div class="thumb">
-        <div class="code-thumb-box">
-          <div style="font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
-            Key Driver
-          </div>
-          <div style="font-size: 22px; font-weight: 700; color: #10B981;">
-            +450% Lift
-          </div>
-          <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
-            Discount Level vs. Order Quantity
-          </div>
+      <div class="thumb dual-thumb">
+        <div class="thumb-half">
+          <img src="b2b1.png" alt="Total Quantity Sold &amp; Nett Sales by Product Category">
+          <span class="thumb-label">Category Sales</span>
+        </div>
+        <div class="thumb-half">
+          <img src="b2b3.png" alt="Total Sales Contribution by Stakeholder Group">
+          <span class="thumb-label">Stakeholders</span>
         </div>
       </div>
       <div class="meta">
@@ -931,26 +928,26 @@
       <div class="modal-gallery">
         <div class="gallery-item">
           <img src="duolingo1.png" alt="CRM Database Structure ERD">
-          <caption>Figure 1: CRM Database Entity Relationship Diagram</caption>
+          <caption>CRM Database Entity-Relationship Diagram</caption>
         </div>
         <div class="gallery-item">
           <img src="duolingo2.png" alt="Upgrade Rate by Engagement Threshold">
-          <caption>Figure 2: Upgrade Rate by User Engagement Threshold</caption>
+          <caption>Upgrade Conversion Rate by Engagement Level</caption>
         </div>
         <div class="gallery-item">
           <img src="duolingo3.png" alt="Conversion Rate by Course Pair">
-          <caption>Figure 3: Conversion Rate across Language Course Pairs</caption>
+          <caption>Conversion Rates Across Language Pairs</caption>
         </div>
         <div class="gallery-item">
           <img src="duolingo4.png" alt="Churn Rate by Plan Tier and Auto-Renew">
-          <caption>Figure 4: Churn Analysis by Subscription Tier &amp; Auto-Renew Settings</caption>
+          <caption>Subscriber Churn Dynamics by Auto-Renew Option</caption>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ---------- Market Basket Analysis Detail Modal ---------- -->
+<!-- ---------- Market Basket Analysis Modal ---------- -->
 <div id="marketBasketModal" class="modal" onclick="closeModalOnBackdrop(event, 'marketBasketModal')">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('marketBasketModal')">&times;</button>
@@ -960,18 +957,18 @@
     
     <div class="modal-body">
       <h3>Project Overview</h3>
-      <p>Conducted association rule mining (Apriori algorithm in R) for a local Indonesian F&amp;B chain to evaluate transaction affinities across different times of day (lunch vs. dinner). Findings directly informed new combo menu design and cross-selling promotions.</p>
+      <p>Conducted association rule mining in R on transactional sales data from a local Indonesian F&amp;B chain to evaluate item co-occurrences across different dayparts (noon vs. night).</p>
       
-      <h3>Strategic Takeaways</h3>
+      <h3>Key Insights &amp; Applications</h3>
       <ul>
-        <li><strong>Noon Bundle:</strong> Strong affinity between main courses and non-coffee beverages during lunch hours.</li>
-        <li><strong>Night Bundle:</strong> Dessert items paired strongly with specialty coffee drinks in the evening hours.</li>
+        <li><strong>Daypart Dynamics:</strong> Uncovered distinct consumer purchasing behaviors during lunch hours compared to evening dinner sessions.</li>
+        <li><strong>Strategic Bundling:</strong> Designed targeted meal combinations (Mains + Non-Coffee for noon; Desserts + Coffee for night) to drive average order value (AOV).</li>
       </ul>
     </div>
   </div>
 </div>
 
-<!-- ---------- B2B Sales Regression Detail Modal ---------- -->
+<!-- ---------- B2B Sales Regression Modal ---------- -->
 <div id="b2bModal" class="modal" onclick="closeModalOnBackdrop(event, 'b2bModal')">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('b2bModal')">&times;</button>
@@ -981,18 +978,34 @@
     
     <div class="modal-body">
       <h3>Project Overview</h3>
-      <p>Built an explanatory OLS regression model in Python across 3,700+ B2B transactions to identify key levers driving order volume for an Indonesian flavoring company.</p>
+      <p>Built an explanatory OLS regression model in Python to identify key demand drivers across 3,700+ B2B transactions for an Indonesian flavoring manufacturer.</p>
 
       <h3>Key Findings</h3>
       <ul>
-        <li><strong>Discount Elasticity:</strong> Targeted tier discounts produced up to +450% lift in total order quantity among medium-to-large business accounts.</li>
-        <li><strong>Order Frequency:</strong> Regular order cadence served as a key indicator of long-term account retention.</li>
+        <li><strong>Pricing Sensitivity:</strong> Identified a significant volume lift (+450%) associated with specific discount tiers.</li>
+        <li><strong>Commercial Optimization:</strong> Recommended refined discount structures to balance order volume growth with profit margin preservation.</li>
       </ul>
+
+      <h3>Analysis &amp; Visualizations</h3>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="b2b1.png" alt="Total Quantity Sold &amp; Nett Sales by Product Category">
+          <caption>Total Quantity Sold &amp; Nett Sales by Product Category</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="b2b2.png" alt="Total Quantity Sold &amp; Nett Sales per Stakeholder">
+          <caption>Total Quantity Sold &amp; Nett Sales per Stakeholder</caption>
+        </div>
+        <div class="gallery-item">
+          <img src="b2b3.png" alt="Total Sales Contribution by Stakeholder Group">
+          <caption>Total Sales Contribution by Stakeholder Group</caption>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ---------- Consumer Perception Study Detail Modal ---------- -->
+<!-- ---------- Consumer Perception Study Modal ---------- -->
 <div id="hawkerModal" class="modal" onclick="closeModalOnBackdrop(event, 'hawkerModal')">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('hawkerModal')">&times;</button>
@@ -1002,18 +1015,18 @@
     
     <div class="modal-body">
       <h3>Project Overview</h3>
-      <p>A mixed-methods consumer behavior study combining quantitative survey analysis (Factor &amp; Cluster Analysis in R) with Focus Group Discussions (FGDs) to evaluate dining choices among young consumers in Singapore.</p>
+      <p>Executed a mixed-methods study combining Focus Group Discussions with quantitative Factor &amp; Cluster Analysis in R to evaluate dining choices among Singapore youth.</p>
 
       <h3>Key Findings</h3>
       <ul>
-        <li><strong>Functional Drivers:</strong> Convenience and price accessibility served as primary factors driving routine visits to local hawker centers.</li>
-        <li><strong>Experiential Factors:</strong> Modern dining spaces were preferred for social gatherings and leisure dining.</li>
+        <li><strong>Primary Drivers:</strong> Functional and utility factors (price, convenience, speed) remain the primary drivers of hawker preference over modern dining options.</li>
+        <li><strong>Segmentation:</strong> Segmented consumers based on lifestyle choices and dining occasions to inform targeted marketing strategies.</li>
       </ul>
     </div>
   </div>
 </div>
 
-<!-- ---------- Tokopedia Looker Detail Modal ---------- -->
+<!-- ---------- Tokopedia Looker Modal ---------- -->
 <div id="lookerModal" class="modal" onclick="closeModalOnBackdrop(event, 'lookerModal')">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('lookerModal')">&times;</button>
@@ -1023,32 +1036,31 @@
     
     <div class="modal-body">
       <h3>Project Overview</h3>
-      <p>An independent practice dashboard replicating automated enterprise reporting systems to monitor e-Commerce sales performance, MoM/YoY growth, and product category trends.</p>
+      <p>Recreated an automated performance tracking system in Google Looker Studio using simulated e-Commerce data modeled after Tokopedia's physical goods business.</p>
 
-      <h3>Dashboard Previews</h3>
       <div class="modal-gallery">
         <div class="gallery-item">
           <img src="L0 Performance.png" alt="L0 Performance Overview">
-          <caption>L0 Top-Level Performance Overview</caption>
+          <caption>L0 Top-level Category Performance Overview</caption>
         </div>
         <div class="gallery-item">
           <img src="L0 Comparison.png" alt="MoM &amp; YoY L0 Insights">
-          <caption>MoM &amp; YoY Category Comparison</caption>
+          <caption>L0 Month-over-Month &amp; Year-over-Year Growth Analysis</caption>
         </div>
         <div class="gallery-item">
           <img src="L2 Performance.png" alt="L2 Deep-dive Overview">
-          <caption>L2 Sub-Category Performance Breakdown</caption>
+          <caption>L2 Sub-category Deep-dive Performance</caption>
         </div>
         <div class="gallery-item">
           <img src="L2 Comparison.png" alt="MoM &amp; YoY L2 Insights">
-          <caption>L2 Growth &amp; Trend Insights</caption>
+          <caption>L2 Sub-category Performance Comparison</caption>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ---------- Run Rate Forecasting Detail Modal ---------- -->
+<!-- ---------- Forecasting Model Modal ---------- -->
 <div id="forecastingModal" class="modal" onclick="closeModalOnBackdrop(event, 'forecastingModal')">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('forecastingModal')">&times;</button>
@@ -1058,49 +1070,51 @@
     
     <div class="modal-body">
       <h3>Project Overview</h3>
-      <p>Redesigned historical run rate logic by introducing weighted moving averages, day-of-week seasonality factors, and campaign-period adjustments.</p>
+      <p>Redesigned the internal run rate estimation methodology for Tokopedia's business tracking, improving forecast reliability during key promotional campaigns and off-peak periods.</p>
 
-      <h3>Business Impact</h3>
+      <h3>Key Outcomes</h3>
       <ul>
-        <li><strong>Increased Accuracy:</strong> Reduced sales forecast variance from 20-30% down to 5-10% across key business categories.</li>
-        <li><strong>Resource Optimization:</strong> Enabled more reliable monthly budgeting and operational planning.</li>
+        <li><strong>Accuracy Improvement:</strong> Reduced projection variance from 20-30% down to 5-10%.</li>
+        <li><strong>Methodology Refinement:</strong> Factored in weekday vs. weekend cycles, campaign spikes, and historical seasonality using weighted scoring formulas.</li>
       </ul>
     </div>
   </div>
 </div>
 
-<!-- ---------- Modal Interactivity Scripts ---------- -->
+<!-- ---------- JavaScript ---------- -->
 <script>
-  function openModal(id) {
-    const modal = document.getElementById(id);
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
     if (modal) {
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
   }
 
-  function closeModal(id) {
-    const modal = document.getElementById(id);
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
     if (modal) {
       modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     }
   }
 
-  function closeModalOnBackdrop(event, id) {
-    if (event.target.id === id) {
-      closeModal(id);
+  function closeModalOnBackdrop(event, modalId) {
+    if (event.target.id === modalId) {
+      closeModal(modalId);
     }
   }
 
+  // Close modal on Escape key press
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-      const activeModals = document.querySelectorAll('.modal.active');
-      activeModals.forEach(modal => {
-        closeModal(modal.id);
-      });
+      const activeModal = document.querySelector('.modal.active');
+      if (activeModal) {
+        closeModal(activeModal.id);
+      }
     }
   });
 </script>
+
 </body>
 </html>
